@@ -49,7 +49,7 @@ meme_list = {"readpin":"https://cdn.discordapp.com/attachments/41608788062935449
              "eww":"https://media1.tenor.com/images/136e3fcc088691d0947268428d2c531a/tenor.gif?itemid=3556274",
              "mindblown":"https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif",
              "nanitf":"https://pics.me.me/sumimasen-nani-the-fuck-me-irl-37490247.png",
-             "ability":"https://cdn.discordapp.com/attachments/418978768422567966/519749553969168394/u0pf0.jpg"
+             "ability":"https://cdn.discordapp.com/attachments/418978768422567966/519749553969168394/u0pf0.jpg",
              "popcorn":"https://media.giphy.com/media/pUeXcg80cO8I8/giphy.gif"}
 
 
