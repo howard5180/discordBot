@@ -36,7 +36,7 @@ async def on_member_join(member):
                        "\n\nThe gateway suddenly opens....",
                        "\n\nSo......Where is my pizza? :pizza:",
                        "\n\n...and got teleported into the server"]
-    serverchannel = member.guild.get_channel(486015801317392394)
+    serverchannel = member.guild.get_channel(525710866860081185)
     msg_rand = random.randint(0,3)
     msg = (welcome_msg_start[msg_rand]+welcome_msg_core+welcome_msg_end[msg_rand]).format(member.id)
     try:
@@ -115,7 +115,6 @@ fact = funfact.get_ff()
 @bot.command()
 async def funfact(ctx):
     num = random.randrange(0,len(fact))
-    msg = ("Did you know?\n\n" + fact[num])
     ff_emb = discord.Embed(description=fact[num],colour=0xFFFFFF)
     ff_emb.set_author(name="Did you know?", icon_url="https://cdn.discordapp.com/attachments/470713810232147988/512477914755760157/Igneel.png")
     ff_emb.set_thumbnail(url="https://images-ext-1.discordapp.net/external/lhqaE-HJIhURlR7v9LsjxZsyOhsemu4FjxV-pmwnUWg/https/cdn.discordapp.com/attachments/349266633476538368/469151696048750593/stmp_10000018.png")
