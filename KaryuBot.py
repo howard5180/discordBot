@@ -308,6 +308,10 @@ async def removeclass(ctx,*a):
     else:
         await ctx.send("You can't use this command here")
 
+@addclass.error
+async def adderror(ctx,error):
+    await ctx.send(error)
+
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #behemoth simulation
