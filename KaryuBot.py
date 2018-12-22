@@ -249,7 +249,8 @@ bow_list = ["bow"]
 #add class
 @bot.command()
 async def addclass(ctx,*a):
-    msg = a.lower()
+    msgInput = " ".join(a)
+    msg = msgInput.lower()
     member = ctx.message.author
     if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
         if (msg in sns_list) or (msg in gs_list) or (msg in spear_list) or (msg in db_list) or (msg in bow_list):
@@ -279,7 +280,8 @@ async def addclass(ctx,*a):
 #remove class
 @bot.command()
 async def removeclass(ctx,*a):
-    msg = a.lower()
+    msgInput = " ".join(a)
+    msg = msgInput.lower()
     member = ctx.message.author
     if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
         if (msg in sns_list) or (msg in gs_list) or (msg in spear_list) or (msg in db_list) or (msg in bow_list):
