@@ -296,7 +296,7 @@ async def removeclass(ctx,*a):
             elif msg in bow_list:
                 class_num = 4
             roleID = discord.utils.get(ctx.guild.roles, name = class_list[class_num])
-            if roleID in member.roles:
+            if roleID not in member.roles:
                 msg = "You don't have the " + class_list[class_num] + " class"
                 await ctx.send(msg)
             else:
