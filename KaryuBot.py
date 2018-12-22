@@ -51,6 +51,10 @@ async def on_member_join(member):
 async def add(ctx, a: int, b: int):
     await ctx.send(a+b)
 
+@bot.command()
+async def atest(ctx, *a):
+    await ctx.send(a)
+
 bot.remove_command('help') #to overwrite discord.py's help
 
 @bot.command()
@@ -235,43 +239,70 @@ async def magi_on_error(ctx, error):
 classes_dict = {"sns":"Sword & Shield","gs":"Great Sword","spear":"Spear","db":"Dual Blades","bow":"Bow"}
 classes_dict_key = classes_dict.keys()
 
+class_list = ["Sword & Shield", "Great Sword", "Spear", "Dual Blades", "Bow"]
+sns_list = ["sns", "snc", "sword & shield", "sword and shield", "shield"]
+gs_list = ["gs", "great sword", "great"]
+spear_list = ["spear", "sp"]
+db_list = ["db", "dual blades", "dual swords", "dual blade", "dual sword", "dual"]
+bow_list = ["bow"]
+
 #add class
 @bot.command()
-async def addclass(ctx,role_tag: str):
+async def addclass(ctx,*a):
+    msg = a.lower()
     member = ctx.message.author
     if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
-        if role_tag in classes_dict_key:
-            roleID = discord.utils.get(ctx.guild.roles, name = classes_dict[role_tag])
+        if (msg in sns_list) or (msg in gs_list) or (msg in spear_list) or (msg in db_list) or (msg in bow_list):
+            if msg in sns_list:
+                class_num = 0
+            elif msg in gs_list:
+                class_num = 1
+            elif msg in spear_list:
+                class_num = 2
+            elif msg in db_list:
+                class_num = 3
+            elif msg in bow_list:
+                class_num = 4
+            roleID = discord.utils.get(ctx.guild.roles, name = class_list[class_num])
             if roleID in member.roles:
-                msg = "You already have the " + classes_dict[role_tag] + " class"
+                msg = "You already have the " + class_list[class_num] + " class"
                 await ctx.send(msg)
             else:
-                msg = classes_dict[role_tag] + " class is added"
+                msg = class_list[class_num] + " class is added"
                 await member.add_roles(roleID)
                 await ctx.send(msg)
         else:
-            await ctx.send("You don't have permission to add this class or it's an invalid class"
-                           "\nFor what class is available please check `.help`")
+            await ctx.send("It's an invalid class. For what class is available please check `.help`")
     else:
         await ctx.send("You can't use this command here")
 
 #remove class
 @bot.command()
-async def removeclass(ctx,role_tag: str):
+async def removeclass(ctx,*a):
+    msg = a.lower()
     member = ctx.message.author
     if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
-        if role_tag in classes_dict_key:
-            roleID = discord.utils.get(ctx.guild.roles, name = classes_dict[role_tag])
-            if roleID not in member.roles:
-                msg = "You don't have the " + classes_dict[role_tag] + " class"
+        if (msg in sns_list) or (msg in gs_list) or (msg in spear_list) or (msg in db_list) or (msg in bow_list):
+            if msg in sns_list:
+                class_num = 0
+            elif msg in gs_list:
+                class_num = 1
+            elif msg in spear_list:
+                class_num = 2
+            elif msg in db_list:
+                class_num = 3
+            elif msg in bow_list:
+                class_num = 4
+            roleID = discord.utils.get(ctx.guild.roles, name = class_list[class_num])
+            if roleID in member.roles:
+                msg = "You don't have the " + class_list[class_num] + " class"
                 await ctx.send(msg)
             else:
-                msg = classes_dict[role_tag] + " class is removeed"
-                await member.remove_roles(roleID)
+                msg = class_list[class_num] + " class is removed"
+                await member.add_roles(roleID)
                 await ctx.send(msg)
         else:
-            await ctx.send("You don't have permission to remove this class or it's an invalid class"
-                           "\nFor what class is available please check `.help`")
+            await ctx.send("It's an invalid class. For what class is available please check `.help`")
     else:
         await ctx.send("You can't use this command here")
 
@@ -457,9 +488,6 @@ async def on_command_error(ctx,error):
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
-
-#pamela token
-#bot.run("NDE2MDg4MzQ4NDI0NDA1MDA2.DkGWwA.jkpmdSaFVBBhfvXF3ySqOoFZ2xY")
 
 #karyu token
 bot.run(secrets.getToken())
