@@ -18,7 +18,9 @@ fun_fact = ["Pamela has a small chance of tripping on her way back after present
             "Raid bosses in a field usually have three sub-missions that reward you for one gem each, with another bonus gem by completing all of them, for a total of 4 gems per behemoth. Useful when you need extra gems after finishing the events.",
             "When a behemoth sends you flying, you are able to perform an action roll and recover faster instead of laying down on the floor. This can be done by tapping the screen before you finish falling.",
             "You can break field objects, like rocks and logs, just like a behemoth if you blast them with a burst great sword shot.",
-            "Behemoths able to counter magi cannot react when incapacitated, so should you manage to paralyze/fatigue/restrain one then be quick with your cast to sneak in some damage!"]
+            "Behemoths able to counter magi cannot react when incapacitated, so should you manage to paralyze/fatigue/restrain one then be quick with your cast to sneak in some damage!",
+            "The color of projectiles from soul weapons are dependent on their element, you’ll shoot red disks from a fire soul dual blade and blue arrows from a water soul bow.",
+            "Heat dual blades only need half of the heat bar to activate overdrive, so there is no need to fully recharge it after use. Beware that your damage increase is reset every time overdrive ends."]
 
 def get_ff():
     return fun_fact

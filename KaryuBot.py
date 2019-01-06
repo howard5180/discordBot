@@ -131,6 +131,12 @@ async def scheduledb(ctx):
            "\nhttps://docs.google.com/spreadsheets/d/10QlMCTN3Rgm-ptDJDCTvPn7lhW93adJMHc_jRfAu4Wc/edit#gid=0")
     await ctx.send(msg)
 
+@bot.command()
+async def blog(ctx):
+    msg = ("Check out Shishui's blog for events and guides (beginners recommended):"
+            "\nhttp://dp-shishui.blogspot.com/")
+    await ctx.send(msg)
+
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
 @bot.command()
