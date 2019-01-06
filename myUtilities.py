@@ -9,13 +9,13 @@ import collections
 
 def getElementLink(stringInput):
     if ("Fire" in stringInput):
-        return "https://cdn.discordapp.com/attachments/470712762314784799/504091443242205184/fire.png"
-    
-    if ("Lightning" in stringInput):
-        return "https://cdn.discordapp.com/attachments/470712762314784799/504091445825765386/lightning.png"
+        return "https://cdn.discordapp.com/attachments/470712762314784799/504091443242205184/fire.png" 
 
     if ("Earth" in stringInput):
         return "https://cdn.discordapp.com/attachments/470712762314784799/504091441908154369/earth.png" 
+
+    if ("Lightning" in stringInput):
+        return "https://cdn.discordapp.com/attachments/470712762314784799/504091445825765386/lightning.png"
 
     if ("Water" in stringInput):
         return "https://cdn.discordapp.com/attachments/470712762314784799/504091447809540126/water.png"
@@ -40,8 +40,8 @@ def getElementLink(stringInput):
 
     if ("List" in stringInput):
         return "https://media.discordapp.net/attachments/456208112790142977/471391949572800514/SS.png"
-		
-	#return "https://media.discordapp.net/attachments/456208112790142977/471391949572800514/SS.png"
+        
+    return "https://media.discordapp.net/attachments/456208112790142977/471391949572800514/SS.png"
 
 def getElementEmoji(stringInput):
     if ("Fire" in stringInput):
@@ -61,8 +61,8 @@ def getElementEmoji(stringInput):
 
     if ("Dark" in stringInput):
         return f"<a:Dark:492101704167194625> - {stringInput}"
-	
-	#return f"{stringInput}"	
+    
+    return f"{stringInput}"    
 
 def getElementColor(stringInput):
     if ("Fire" in stringInput):
@@ -97,8 +97,8 @@ def getElementColor(stringInput):
     
     if ("List" in stringInput):
         return 0x8e8e8e
-	
-	#return 0x000000
+    
+    return 0x000000
 
 def getWeaponElement(stringInput):
     stringInputLower = stringInput.lower()
@@ -215,7 +215,7 @@ def fetchBehemothDB(name):
 
     try:
         with connection.cursor() as cursor:
-            sql = f"SELECT B.Name AS BeheName, B.Element as BeheElement, W.Type AS WepType, W.Tier AS WepTier, W.Ability AS WepAbility, A.Ability AS ArmourAbility FROM behemothtable AS B INNER JOIN weapontable AS W ON W.IdWeapon = B.IdWeapon_BehemothTable INNER JOIN armourtable AS A ON A.IdBehemoth_ArmourTable = B.IdBehemoth WHERE B.Name LIKE '%{name}%' GROUP BY B.IdBehemoth"
+            sql = f"SELECT B.Name AS BeheName, B.Element as BeheElement, W.Type AS WepType, W.Tier AS WepTier, W.Ability AS WepAbility, A.Ability AS ArmourAbility FROM behemothtable AS B INNER JOIN weapontable AS W ON W.IdWeapon = B.IdWeapon_BehemothTable INNER JOIN armourtable AS A ON A.IdBehemoth_ArmourTable = B.IdBehemoth WHERE B.name_clean LIKE '%{name}%' GROUP BY B.IdBehemoth"
             cursor.execute(sql) 
             result = cursor.fetchall()
 
@@ -228,7 +228,7 @@ def fetchWeaponDB(name):
 
     try:
         with connection.cursor() as cursor:
-            sql = f"SELECT behemothtable.Name, behemothtable.Element, weapontable.Type, weapontable.Tier, weapontable.PhysAttack, weapontable.ElemAttack, weapontable.Ability, weapontable.Obs FROM behemothtable INNER JOIN weapontable ON weapontable.IdWeapon = behemothtable.IdWeapon_BehemothTable WHERE behemothtable.Name LIKE '%{name}%'"
+            sql = f"SELECT behemothtable.Name, behemothtable.Element, weapontable.Type, weapontable.Tier, weapontable.PhysAttack, weapontable.ElemAttack, weapontable.Ability, weapontable.Obs FROM behemothtable INNER JOIN weapontable ON weapontable.IdWeapon = behemothtable.IdWeapon_BehemothTable WHERE behemothtable.name_clean LIKE '%{name}%'"
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
@@ -240,7 +240,7 @@ def fetchArmorDB(name):
     
     try:
         with connection.cursor() as cursor:
-            sql = f"SELECT behemothtable.Name AS BeheName, behemothtable.Element AS BeheElement, armourtable.DefElement AS ArmorElement, armourtable.HpValue AS ArmorHP, armourtable.PhysDef AS ArmorPDef, armourtable.ElemDef AS ArmorEDef, armourtable.PhysAttack AS ArmorPAtk, armourtypelist.Name AS ArmorType, armourtable.Ability AS ArmorAbility, armourtable.Obs AS ArmorObs FROM behemothtable LEFT JOIN armourtable ON armourtable.IdBehemoth_ArmourTable = behemothtable.IdBehemoth LEFT JOIN armourtypelist ON armourtypelist.IdArmourTypeList = armourtable.IdArmourtype_ArmourTable WHERE behemothtable.Name LIKE '%{name}%'"
+            sql = f"SELECT behemothtable.Name AS BeheName, behemothtable.Element AS BeheElement, armourtable.DefElement AS ArmorElement, armourtable.HpValue AS ArmorHP, armourtable.PhysDef AS ArmorPDef, armourtable.ElemDef AS ArmorEDef, armourtable.PhysAttack AS ArmorPAtk, armourtypelist.Name AS ArmorType, armourtable.Ability AS ArmorAbility, armourtable.Obs AS ArmorObs FROM behemothtable LEFT JOIN armourtable ON armourtable.IdBehemoth_ArmourTable = behemothtable.IdBehemoth LEFT JOIN armourtypelist ON armourtypelist.IdArmourTypeList = armourtable.IdArmourtype_ArmourTable WHERE behemothtable.name_clean LIKE '%{name}%'"
             cursor.execute(sql) 
             result = cursor.fetchall()
             return result
@@ -252,7 +252,7 @@ def fetchMagiDB(name):
     
     try:
         with connection.cursor() as cursor:
-            sql = f"SELECT magitable.Name, magitable.Cooldown, magitable.HealAmount, magitable.Description, magitable.Obs, magitypelist.Name FROM magitable INNER JOIN magitypelist ON magitypelist.IdMagiType = magitable.IdMagiType_MagiTable WHERE magitable.Name LIKE '%{name}%'"
+            sql = f"SELECT magitable.Name, magitable.Cooldown, magitable.HealAmount, magitable.Description, magitable.Obs, magitypelist.Name FROM magitable INNER JOIN magitypelist ON magitypelist.IdMagiType = magitable.IdMagiType_MagiTable WHERE magitable.name_clean LIKE '%{name}%'"
             cursor.execute(sql) #this returns the amount of rows affected.
             result = cursor.fetchall()
             return result
@@ -342,6 +342,7 @@ def magiEmbedGenerator(magiArray, inputString):
     return embed
 
 def behemothEmbedGenerator(behemothArray, inputString):
+    print(len(behemothArray))
     if (len(behemothArray) == 1):
         embed = singleBehemothEmbed(behemothArray)
     else:
