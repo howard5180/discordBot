@@ -307,7 +307,7 @@ async def removeclass(ctx,*a):
                 await ctx.send(msg)
             else:
                 msg = class_list[class_num] + " class is removed"
-                await member.add_roles(roleID)
+                await member.remove_roles(roleID)
                 await ctx.send(msg)
         else:
             await ctx.send("It's an invalid class. For what class is available please check `.help`")
