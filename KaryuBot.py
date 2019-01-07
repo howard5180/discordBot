@@ -68,11 +68,13 @@ async def help(ctx):
     emb.add_field(name = "Weapon information:", value = "`.wep <behemoth name>`", inline=True)
     emb.add_field(name = "Armor information:", value = "`.armor <behemoth name>`", inline=True)
     emb.add_field(name = "Class command:", value = "`.addclass <class>` and `.removeclass <class>`\nAvailable class: `sns` `gs` `spear` `db` `bow`", inline=False)
+    emb.add_field(name = "Role command:", value = "`.addrole <role>` and `.removerole <role>`\nAvailable roles: `tower`, `br`, `expo`, `carry`",inline=False)
     emb.add_field(name = "Behemoth Summon simulation:", value = "`.behesim single` or `.behesim multi <step number>` \nP.S. Step is default as 1 if not specified", inline=False)
     emb.add_field(name = "Magi Summon simulation:", value = "`.magisim <single/multi>`", inline=False)
     emb.add_field(name = "List of meme command:", value = "`.memelist`", inline=True)
     emb.add_field(name = "Random Dragon Project fun fact:", value = "`.funfact`", inline=True)
     emb.add_field(name = "JP event schedule (made by Algor):", value = "`.scheduledb`", inline=True)
+    emb.add_field(name = "Shishui's blog:", value = "`.blog`", inline=True)
     emb.add_field(name = "Server invite link:", value = "`.invite`", inline=True)
     emb.add_field(name = "Redemption link:", value = "`.redeem`", inline=True)
     emb.add_field(name = "Support ticket:", value = "`.support`", inline=True)
@@ -279,7 +281,7 @@ async def addclass(ctx,*a):
                 await member.add_roles(roleID)
                 await ctx.send(msg)
         else:
-            await ctx.send("It's an invalid class. For what class is available please check `.help`")
+            await ctx.send("It's an invalid class. For available classes please check `.help`")
     else:
         await ctx.send("You can't use this command here")
 
@@ -310,13 +312,81 @@ async def removeclass(ctx,*a):
                 await member.remove_roles(roleID)
                 await ctx.send(msg)
         else:
-            await ctx.send("It's an invalid class. For what class is available please check `.help`")
+            await ctx.send("It's an invalid class. For available classes please check `.help`")
     else:
         await ctx.send("You can't use this command here")
 
 @addclass.error
 async def adderror(ctx,error):
     await ctx.send(error)
+
+#add and remove roles (for tower, br, expo and general)
+
+role_list = ["Tower Elevator", "BR Maniac", "Crystal Farmer", "Carry Master"]
+tower_list = ["tower elevator", "tower", "elevator", "beast tower"]
+br_list = ["br", "battle royale", "battle", "royale", "maniac", "br maniac"]
+expo_list = ["expo", "expedition", "farmer", "crystal", "crystal farmer"]
+carry_list = ["carry master", "carry", "master"]
+
+#add role
+@bot.command()
+async def addrole(ctx, *a):
+    msgInput = " ".join(a)
+    msg = msgInput.lower()
+    member = ctx.message.author
+    if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
+        if (msg in tower_list) or (msg in br_list) or (msg in expo_list) or (msg in carry_list):
+            if msg in tower_list:
+                role_num = 0
+            elif msg in br_list:
+                role_num = 1
+            elif msg in expo_list:
+                role_num = 2
+            elif msg in carry_list:
+                role_num = 3
+            roleID = discord.utils.get(ctx.guild.roles, name = role_list[role_num])
+            if (roleID in member.roles):
+                msg = "You already have the " + role_list[role_num] + " role"
+                await ctx.send(msg)
+            else:
+                msg = role_list[role_num] + " role is added"
+                await member.add_roles(roleID)
+                await ctx.send(msg)
+        else:
+            msg = "It's an invalid role. For available roles please check `.help`"
+    else:
+        msg = "You can't use this command here"
+        await ctx.send(msg)
+
+#remove role
+@bot.command()
+async def removerole(ctx, *a):
+    msgInput = " ".join(a)
+    msg = msgInput.lower()
+    member = ctx.message.author
+    if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
+        if (msg in tower_list) or (msg in br_list) or (msg in expo_list) or (msg in carry_list):
+            if msg in tower_list:
+                role_num = 0
+            elif msg in br_list:
+                role_num = 1
+            elif msg in expo_list:
+                role_num = 2
+            elif msg in carry_list:
+                role_num = 3
+            roleID = discord.utils.get(ctx.guild.roles, name = role_list[role_num])
+            if (roleID not in member.roles):
+                msg = "You don't have the " + role_list[role_num] + " role"
+                await ctx.send(msg)
+            else:
+                msg = role_list[role_num] + " role is removed"
+                await member.remove_roles(roleID)
+                await ctx.send(msg)
+        else:
+            msg = "It's an invalid role. For available roles please check `.help`"
+    else:
+        msg = "You can't use this command here"
+        await ctx.send(msg)
 
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
