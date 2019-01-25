@@ -51,7 +51,8 @@ meme_list = {"readpin":"https://cdn.discordapp.com/attachments/41608788062935449
              "nanitf":"https://pics.me.me/sumimasen-nani-the-fuck-me-irl-37490247.png",
              "ability":"https://cdn.discordapp.com/attachments/418978768422567966/519749553969168394/u0pf0.jpg",
              "popcorn":"https://media.giphy.com/media/pUeXcg80cO8I8/giphy.gif",
-             "poor":"https://media.giphy.com/media/3o6UB5RrlQuMfZp82Y/giphy.gif"}
+             "poor":"https://media.giphy.com/media/3o6UB5RrlQuMfZp82Y/giphy.gif",
+             "refuse":"https://media1.tenor.com/images/20c76a29e9da31861c56f416713b8462/tenor.gif?itemid=7385649"}
 
 
 
