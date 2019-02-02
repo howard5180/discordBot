@@ -143,7 +143,8 @@ async def blog(ctx):
 @bot.command()
 async def timetest(ctx):
     currentTime = datetime.utcnow()
-    await ctx.send(currentTime)
+    currentHour = currentTime.hour
+    await ctx.send(currentHour)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
