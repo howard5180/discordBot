@@ -8,6 +8,7 @@ import myUtilities
 import secrets
 import meme_command
 import funfact
+from datetime import datetime
 
 bot = commands.Bot(command_prefix='.')
 
@@ -138,6 +139,11 @@ async def blog(ctx):
     msg = ("Check out Shishui's blog for events and guides (beginners recommended):"
             "\nhttp://dp-shishui.blogspot.com/")
     await ctx.send(msg)
+
+@bot.command()
+async def timetest(ctx):
+    currentTime = datetime.utcnow()
+    await ctx.send(currentTime)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
