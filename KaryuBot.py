@@ -144,7 +144,8 @@ async def blog(ctx):
 async def timetest(ctx):
     currentTime = datetime.utcnow()
     currentHour = currentTime.hour
-    await ctx.send(currentHour)
+    weekday = currentTime.weekday()
+    await ctx.send(weekday)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
