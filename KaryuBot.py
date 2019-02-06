@@ -257,9 +257,9 @@ classes_dict_key = classes_dict.keys()
 
 class_list = ["Sword & Shield", "Great Sword", "Spear", "Dual Blades", "Bow"]
 sns_list = ["sns", "snc", "sword & shield", "sword and shield", "shield"]
-gs_list = ["gs", "great sword", "great"]
+gs_list = ["gs", "great sword", "great", "greatsword"]
 spear_list = ["spear", "sp"]
-db_list = ["db", "dual blades", "dual swords", "dual blade", "dual sword", "dual"]
+db_list = ["db", "dual blades", "dual swords", "dual blade", "dual sword", "dual", "dualblade", "dualblades", "dblades", "dbs"]
 bow_list = ["bow"]
 
 #add class
