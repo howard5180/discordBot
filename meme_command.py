@@ -16,7 +16,7 @@ meme_list = {"readpin":"https://cdn.discordapp.com/attachments/41608788062935449
              "angry":"https://cdn.discordapp.com/attachments/416087880629354499/433879960860491776/6ad7f2385d44eb3b5a8b445b3c7917635a75ff37_hq.gif",
              "moneyslap":"https://cdn.discordapp.com/attachments/416087880629354499/431179068625518592/yato_money_slap.gif",
              "why":"https://media.giphy.com/media/1M9fmo1WAFVK0/giphy.gif",
-             "stahp":"http://gifyu.com/images/stop-sign.gif",
+             "stahp":"https://media1.tenor.com/images/cedb50f0a1771cfe760a047bee4844c7/tenor.gif?itemid=5839356",
              "glare":"https://cdn.discordapp.com/attachments/276918944072204289/323857157525209088/image.png",
              "what":what,
              "everyone":"http://i3.kym-cdn.com/photos/images/original/001/263/237/be8.gif",

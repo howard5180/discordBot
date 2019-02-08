@@ -145,7 +145,7 @@ async def timetest(ctx):
     currentTime = datetime.utcnow()
     currentHour = currentTime.hour
     weekday = currentTime.weekday()
-    await ctx.send(weekday)
+    await ctx.send(currentTime)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
