@@ -153,6 +153,24 @@ async def daytest(ctx):
     weekday = currentTime.weekday()
     await ctx.send(weekday)
 
+@bot.command()
+async def reroll(ctx):
+    currentTime = datetime.utcnow()
+    currentHour = currentTime.hour
+    currentMinute = currentTime.minute
+    weekday = currentTime.weekday()
+    if weekday < 2:
+        remainDay = 1 - weekday
+    else:
+        remainDay = 9 - weekday
+    remainHour = 23 - currentHour
+    remainMinute = 59 - currentMinute
+    if weekday == 2:
+        msg = "There is " + str(remainHour) + "hour(s) and " + str(remainMinute) + " minute(s) until ability half price ends"
+    else:
+        msg = "There is " + str(remainDay) + " day(s), " + str(remainHour) + " hour(s) and " + str(remainMinute) + " minute(s) until ability half price time comes!"
+    await ctx.send(msg)
+
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
 @bot.command()
