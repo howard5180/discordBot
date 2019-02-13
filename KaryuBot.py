@@ -145,8 +145,13 @@ async def timetest(ctx):
     currentTime = datetime.utcnow()
     currentHour = currentTime.hour
     weekday = currentTime.weekday()
-    msg = (currentTime + "\n" + currentHour)
-    await ctx.send(msg)
+    await ctx.send(currentTime)
+
+@bot.command()
+async def hourtest(ctx):
+    currentTime = datetime.utcnow()
+    currentHour = currentTime.hour
+    await ctx.send(currentHour)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
