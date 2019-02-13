@@ -148,10 +148,10 @@ async def timetest(ctx):
     await ctx.send(currentTime)
 
 @bot.command()
-async def hourtest(ctx):
+async def daytest(ctx):
     currentTime = datetime.utcnow()
-    currentHour = currentTime.hour
-    await ctx.send(currentHour)
+    weekday = currentTime.weekday()
+    await ctx.send(weekday)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
