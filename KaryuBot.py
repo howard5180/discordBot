@@ -167,11 +167,11 @@ async def reroll(ctx):
     remainMinute = 59 - currentMinute
     startMsg = "There are "
     if remainDay == 1:
-        dayMsg = str(remainDay) + " day"
+        dayMsg = str(remainDay) + " day, "
     elif remainDay == 0:
         dayMsg = " "
     else:
-        dayMsg = ""
+        dayMsg = str(remainDay) + " days, "
     if remainHour == 1:
         hourMsg = str(remainHour) + " hour"
     elif remainHour == 0:
@@ -191,7 +191,7 @@ async def reroll(ctx):
     if weekday == 2:
         msg = startMsg + hourMsg + " and " + minMsg + " until ability half price ends"
     else:
-        msg = startMsg + dayMsg + ", " + hourMsg + " and " + minMsg + " until ability half price starts"
+        msg = startMsg + dayMsg + hourMsg + " and " + minMsg + " until ability half price starts"
     await ctx.send(msg)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
