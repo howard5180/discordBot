@@ -141,19 +141,6 @@ async def blog(ctx):
     await ctx.send(msg)
 
 @bot.command()
-async def timetest(ctx):
-    currentTime = datetime.utcnow()
-    currentHour = currentTime.hour
-    weekday = currentTime.weekday()
-    await ctx.send(currentTime)
-
-@bot.command()
-async def daytest(ctx):
-    currentTime = datetime.utcnow()
-    weekday = currentTime.weekday()
-    await ctx.send(weekday)
-
-@bot.command()
 async def reroll(ctx):
     currentTime = datetime.utcnow()
     currentHour = currentTime.hour
@@ -167,17 +154,19 @@ async def reroll(ctx):
     remainMinute = 59 - currentMinute
     startMsg = "There are "
     if remainDay == 1:
-        dayMsg = str(remainDay) + " day, "
+        dayMsg = str(remainDay) + " day"
     elif remainDay == 0:
         dayMsg = " "
     else:
-        dayMsg = str(remainDay) + " days, "
+        dayMsg = str(remainDay) + " days"
     if remainHour == 1:
         hourMsg = str(remainHour) + " hour"
+        dayMsg += ", "
     elif remainHour == 0:
         hourMsg = " "
     else:
         hourMsg = str(remainHour) + " hours"
+        dayMsg += ", "
     if remainMinute == 1:
         minMsg = str(remainMinute) + " minute"
         if remainDay != 0 or remainHour != 0:
