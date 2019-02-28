@@ -165,7 +165,7 @@ async def reroll(ctx):
     elif remainHour == 0:
         hourMsg = " "
     else:
-        hourMsg = str(remainHour) + " hours"
+        hourMsg = str(remainHour) + " hours and "
         dayMsg += ", "
     if remainMinute == 1:
         minMsg = str(remainMinute) + " minute"
