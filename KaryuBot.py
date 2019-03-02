@@ -149,7 +149,7 @@ async def reroll(ctx):
     if weekday < 2:
         remainDay = 1 - weekday
     else:
-        remainDay = 9 - weekday
+        remainDay = 8 - weekday
     remainHour = 23 - currentHour
     remainMinute = 59 - currentMinute
     startMsg = "There are "
