@@ -436,7 +436,7 @@ async def removerole(ctx, *a):
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #behemoth simulation
 sim_s_behe_end_msg = {"B":"Try harder next time <a:WHALEHARD:462505685800845312>",
-                     "A":"At least a tiny step to LB a SS gear <:heyooo:454450358257844224>",
+                     "A":"At least a tiny step to LB a SS gear <:heyooo:382266699065589760>",
                      "S":"Oh you thought the gold circle will give you a SS? But it's just another LB fodder ( ͡° ͜ʖ ͡°)",
                      "SS":"What is this luck? <:slimeWut:472120440119099392>"}
 sim_s_magi_end_msg = {"B":"Try harder next time <a:WHALEHARD:462505685800845312>",
