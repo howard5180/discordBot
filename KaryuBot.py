@@ -622,6 +622,8 @@ async def on_message(message):
             await message.channel.send("test")
         elif "rng" in msg:
             await message.channel.send("Bless the RNGesus :D")
+        elif "fuck" in msg:
+            await message.channel.send("Hey no rude words")
 
 
     await bot.process_commands(message)
