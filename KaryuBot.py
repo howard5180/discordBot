@@ -624,7 +624,7 @@ async def on_message(message):
             await message.channel.send("Bless the RNGesus :D")
         elif "fuck" in msg:
             await message.channel.send("Hey no rude words")
-        elif "<:heart:1234>" in msg:
+        elif "love" in msg:
             await message.channel.send("<:heart:1234>")
 
 
