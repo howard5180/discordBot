@@ -57,7 +57,8 @@ meme_list = {"readpin":"https://cdn.discordapp.com/attachments/41608788062935449
              "police":"https://media1.tenor.com/images/ae6d71cdb35082ac7a77afe20aad28c4/tenor.gif?itemid=5600129",
              "ic":"https://media1.tenor.co/images/f23606ccc74d5393d3776dd2073bff53/tenor.gif?itemid=4994872&fbclid=IwAR0wgmGNcThUfs6VwpbVeSW2CblAfKop02t8UBKnAESL3Xa6XWappU_NUhY",
              "smug":"https://media1.tenor.com/images/d2dd8122eac32df3ad87b436b90c3dd5/tenor.gif?itemid=7333081",
-             "smirk":"https://media1.tenor.com/images/3a5314f44cbb30a3c7c55a8c136f1f2d/tenor.gif?itemid=5795854"}
+             "smirk":"https://media1.tenor.com/images/3a5314f44cbb30a3c7c55a8c136f1f2d/tenor.gif?itemid=5795854",
+             "dance":"https://media.giphy.com/media/SAOYLPOF5n07LTMst5/giphy.gif"}
 
 
 
