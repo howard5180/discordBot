@@ -46,7 +46,7 @@ async def on_member_join(member):
         pass
 
 @bot.event
-async def on_message(msg):
+async def on_message(ctx, msg):
     stringMsg = msg.split()
     for x in stringMsg:
         if x == "<3":
