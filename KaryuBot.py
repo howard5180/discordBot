@@ -613,6 +613,19 @@ async def on_command_error(ctx,error):
         print("server: ",ctx.message.guild.name)
         print("channel: ",ctx.message.channel.name,"\n")
 
+#try respond to msg
+@bot.event
+async def on_message(ctx):
+    msg = ctx.message.content
+    msg = msg.split()
+    for x in msg:
+        if x == "testing":
+            replyMsg = "boom"
+    try:
+        await ctx.send(replyMsg)
+    except Exception:
+        pass
+
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
 
