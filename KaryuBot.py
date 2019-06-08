@@ -45,16 +45,6 @@ async def on_member_join(member):
     except Exception:
         pass
 
-@bot.event
-async def on_message(ctx, message):
-    msg = message.content.split()
-    for x in msg:
-        if x == "<3":
-            replyMsg = "<3"
-    try:
-        await ctx.send(replyMsg)
-    except Exception:
-        pass
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #miscellaneous commands
