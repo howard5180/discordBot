@@ -614,21 +614,21 @@ async def on_command_error(ctx,error):
         print("channel: ",ctx.message.channel.name,"\n")
 
 #try respond message
-@bot.event
-async def on_message(message):
-    msg = message.content
-    if bot.user.id != message.author.id:
-        if "testing" in msg:
-            await message.channel.send("test")
-        elif "rng" in msg:
-            await message.channel.send("Bless the RNGesus :D")
-        elif "fuck" in msg:
-            await message.channel.send("Hey no rude words")
-        elif "love" in msg:
-            await message.channel.send("<:heart:1234>")
+#@bot.event
+#async def on_message(message):
+#    msg = message.content
+#    if bot.user.id != message.author.id:
+#        if "testing" in msg:
+#            await message.channel.send("test")
+#        elif "rng" in msg:
+#            await message.channel.send("Bless the RNGesus :D")
+#        elif "fuck" in msg:
+#            await message.channel.send("Hey no rude words")
+#        elif "love" in msg:
+#            await message.channel.send("<:heart:1234>")
 
 
-    await bot.process_commands(message)
+#    await bot.process_commands(message)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
