@@ -620,8 +620,8 @@ async def on_message(message):
     if bot.user.id != message.author.id:
         if "testing" in msg:
             await message.channel.send("test")
-        elif ":heart:" in msg:
-            await message.channel.send(":heart:")
+        elif "rng" in msg:
+            await message.channel.send("Bless the RNGesus :D")
 
 
     await bot.process_commands(message)
