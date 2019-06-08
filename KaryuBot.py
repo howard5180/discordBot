@@ -613,6 +613,14 @@ async def on_command_error(ctx,error):
         print("server: ",ctx.message.guild.name)
         print("channel: ",ctx.message.channel.name,"\n")
 
+#try respond message
+@bot.event
+async def on_message(message):
+    msg = msg.content
+    if "<3" in msg:
+        await message.channel.send("<3")
+
+    await bot.process_commands(message)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
