@@ -616,9 +616,9 @@ async def on_command_error(ctx,error):
 #try respond message
 @bot.event
 async def on_message(message):
-    msg = msg.content
+    msg = message.content
     if "<3" in msg:
-        await message.channel.send("<3")
+        await bot.on_message
 
     await bot.process_commands(message)
 
