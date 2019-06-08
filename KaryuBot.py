@@ -617,8 +617,8 @@ async def on_command_error(ctx,error):
 @bot.event
 async def on_message(message):
     msg = message.content
-    if True:
-        await message.channel.send(message)
+    if "testing" in msg:
+        await message.channel.send("test")
 
 
     await bot.process_commands(message)
