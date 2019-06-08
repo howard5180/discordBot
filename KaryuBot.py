@@ -45,6 +45,13 @@ async def on_member_join(member):
     except Exception:
         pass
 
+@bot.event
+async def on_message(msg):
+    stringMsg = msg.split()
+    for x in stringMsg:
+        if x == "<3":
+            await msg.channel.send("<3")
+
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #miscellaneous commands
 
