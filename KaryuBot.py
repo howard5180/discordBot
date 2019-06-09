@@ -55,7 +55,7 @@ async def add(ctx, a: int, b: int):
 
 @bot.command()
 async def atest(ctx, *a):
-    msg = a.split()
+    msg = list(a)
     await ctx.send(a)
 
 bot.remove_command('help') #to overwrite discord.py's help
