@@ -55,6 +55,7 @@ async def add(ctx, a: int, b: int):
 
 @bot.command()
 async def atest(ctx, *a):
+    msg = a.split()
     await ctx.send(a)
 
 bot.remove_command('help') #to overwrite discord.py's help
@@ -614,21 +615,7 @@ async def on_command_error(ctx,error):
         print("channel: ",ctx.message.channel.name,"\n")
 
 #try respond message
-#@bot.event
-#async def on_message(message):
-#    msg = message.content
-#    if bot.user.id != message.author.id:
-#        if "testing" in msg:
-#            await message.channel.send("test")
-#        elif "rng" in msg:
-#            await message.channel.send("Bless the RNGesus :D")
-#        elif "fuck" in msg:
-#            await message.channel.send("Hey no rude words")
-#        elif "love" in msg:
-#            await message.channel.send("<:heart:1234>")
 
-
-#    await bot.process_commands(message)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
