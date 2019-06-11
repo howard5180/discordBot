@@ -6,7 +6,6 @@ import re
 import secrets
 import collections
 
-
 def getElementLink(stringInput):
     if ("Fire" in stringInput):
         return "https://cdn.discordapp.com/attachments/470712762314784799/504091443242205184/fire.png" 
@@ -210,6 +209,15 @@ def matchWeaponAttributes(inputWordArray):
     returnDict = {"Element" : elementString, "Type" : typeString, "Class" : classString}
     return returnDict
 
+def isExactMatch(behemothArray, inputString):
+    exactMatchBehemoth = []
+    for idx, line in enumerate(behemothArray, start=0):
+        if(line['BeheName'].lower() == inputString.lower()):
+            exactMatchBehemoth.append(line)
+            return exactMatchBehemoth
+    
+    return False
+
 def fetchBehemothDB(name):
     connection = secrets.getConnection()
 
@@ -342,7 +350,12 @@ def magiEmbedGenerator(magiArray, inputString):
     return embed
 
 def behemothEmbedGenerator(behemothArray, inputString):
-    print(len(behemothArray))
+    behemothMatchArray = isExactMatch(behemothArray, inputString)
+    
+    if (behemothMatchArray != False):
+        embed = singleBehemothEmbed(behemothMatchArray)
+        return embed
+    
     if (len(behemothArray) == 1):
         embed = singleBehemothEmbed(behemothArray)
     else:
