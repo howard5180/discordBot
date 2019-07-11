@@ -60,7 +60,7 @@ async def atest(ctx, *a):
 
 @bot.command()
 async def getname(ctx):
-    aname = ctx.author.name
+    aname = ctx.author.role
     await ctx.send(aname)
 
 bot.remove_command('help') #to overwrite discord.py's help
