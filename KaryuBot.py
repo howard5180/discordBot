@@ -58,6 +58,11 @@ async def atest(ctx, *a):
     msg = list(a)
     await ctx.send(a)
 
+@bot.command()
+async def getname(ctx):
+    aname = ctx.author.name
+    await ctx.send(aname)
+
 bot.remove_command('help') #to overwrite discord.py's help
 
 @bot.command()
@@ -614,7 +619,22 @@ async def on_command_error(ctx,error):
         print("server: ",ctx.message.guild.name)
         print("channel: ",ctx.message.channel.name,"\n")
 
+respondMsg = {"love":"<:heart:1234>"}
+rMsgKey = respondMsg.keys()
+
 #try respond message
+#@bot.event
+#async def on_message(message):
+#    msg = message.content
+#    msg = msg.split(" ")
+#    if bot.user.id != message.author.id:
+#        for x in msg:
+#            if x in rMsgKey:
+#                await message.channel.send(respondMsg[msg])
+#                pass
+
+#    await bot.process_commands(message)
+
 
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
