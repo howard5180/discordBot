@@ -193,11 +193,11 @@ async def reroll(ctx):
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
 
-modRole = discord.utils.get(ctx.guild.roles, name = Moderators)
 channelWhiteList = ["behemoth-magi-hub","bot_testing","executive-room","general-testing"]
 
 @bot.command()
 async def behe(ctx, *a):
+    modRole = discord.utils.get(ctx.guild.roles, name = Moderators)
     if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         i = 0
         joinedInput = " ".join(a)
@@ -225,6 +225,7 @@ async def behe(ctx, *a):
 
 @bot.command()
 async def wep(ctx, *a):
+    modRole = discord.utils.get(ctx.guild.roles, name = Moderators)
     if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
@@ -240,6 +241,7 @@ async def wep(ctx, *a):
 
 @bot.command()
 async def armor(ctx, *a):
+    modRole = discord.utils.get(ctx.guild.roles, name = Moderators)
     if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
@@ -255,6 +257,7 @@ async def armor(ctx, *a):
 
 @bot.command()
 async def magi(ctx, *a):
+    modRole = discord.utils.get(ctx.guild.roles, name = Moderators)
     if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         joined = " ".join(a)
         filteredInput = myUtilities.filterInput(joined)
