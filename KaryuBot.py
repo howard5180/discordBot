@@ -66,7 +66,8 @@ async def getname(ctx):
 @bot.command()
 async def getroleid(ctx):
     roleId = discord.utils.get(ctx.guild.roles, name = "Moderators")
-    await ctx.send(roldId)
+    roleItem = ctx.guild.get_role(roleId)
+    await ctx.send(roleItem)
 
 bot.remove_command('help') #to overwrite discord.py's help
 
