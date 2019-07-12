@@ -61,20 +61,10 @@ async def atest(ctx, *a):
 @bot.command()
 async def getname(ctx):
     arole = ctx.author.roles
-    aname = arole
+    await ctx.send(arole)
     for x in arole:
-        aname[x] = arole[x].name
-    await ctx.send(aname)
+        await ctx.send(x.name)
 
-@bot.command()
-async def getroleid(ctx):
-    roleId = discord.utils.get(ctx.guild.roles, name = "Moderators")
-    await ctx.send(roleId)
-
-@bot.command()
-async def modRole(ctx):
-    modRoleItem = ctx.guild.get_role(348788475627044864)
-    await ctx.send(modRoleItem)
 
 bot.remove_command('help') #to overwrite discord.py's help
 
