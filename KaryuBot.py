@@ -192,9 +192,13 @@ async def reroll(ctx):
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
+
+modRole = discord.utils.get(ctx.guild.roles, name = Moderators)
+channelWhiteList = ["behemoth-magi-hub","bot_testing","executive-room","general-testing"]
+
 @bot.command()
 async def behe(ctx, *a):
-    if (ctx.channel.name == "behemoth-magi-hub") or (ctx.channel.name == "bot_testing") or (ctx.channel.name == "executive-room") or (ctx.channel.name == "general-testing"):
+    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         i = 0
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
@@ -221,7 +225,7 @@ async def behe(ctx, *a):
 
 @bot.command()
 async def wep(ctx, *a):
-    if (ctx.channel.name == "behemoth-magi-hub") or (ctx.channel.name == "bot_testing") or (ctx.channel.name == "executive-room") or (ctx.channel.name == "general-testing"):
+    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
         queryResults = myUtilities.fetchWeaponDB(filteredInput)
@@ -236,7 +240,7 @@ async def wep(ctx, *a):
 
 @bot.command()
 async def armor(ctx, *a):
-    if (ctx.channel.name == "behemoth-magi-hub") or (ctx.channel.name == "bot_testing") or (ctx.channel.name == "executive-room") or (ctx.channel.name == "general-testing"):
+    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
         queryResults = myUtilities.fetchArmorDB(filteredInput)
@@ -251,7 +255,7 @@ async def armor(ctx, *a):
 
 @bot.command()
 async def magi(ctx, *a):
-    if (ctx.channel.name == "behemoth-magi-hub") or (ctx.channel.name == "bot_testing") or (ctx.channel.name == "executive-room") or (ctx.channel.name == "general-testing"):
+    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
         joined = " ".join(a)
         filteredInput = myUtilities.filterInput(joined)
         queryResults = myUtilities.fetchMagiDB(filteredInput)
