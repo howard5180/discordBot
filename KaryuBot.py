@@ -60,7 +60,10 @@ async def atest(ctx, *a):
 
 @bot.command()
 async def getname(ctx):
-    aname = ctx.author.roles
+    arole = ctx.author.roles
+    aname = arole
+    for x in arole:
+        aname[x] = arole[x].name
     await ctx.send(aname)
 
 @bot.command()
