@@ -200,9 +200,11 @@ channelWhiteList = ["behemoth-magi-hub","bot_testing","executive-room","general-
 
 @bot.command()
 async def behe(ctx, *a):
-    modRoleID = discord.utils.get(ctx.guild.roles, name = "Moderators")
-    modRole = ctx.guild.get_role(modRoleID)
-    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
+    memRole = ctx.author.roles
+    memRoleName = list()
+    for xyz in memRole:
+        memRoleName.append(xyz.name)
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
         i = 0
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
@@ -229,9 +231,11 @@ async def behe(ctx, *a):
 
 @bot.command()
 async def wep(ctx, *a):
-    modRoleID = discord.utils.get(ctx.guild.roles, name = "Moderators")
-    modRole = ctx.guild.get_role(modRoleID)
-    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
+    memRole = ctx.author.roles
+    memRoleName = list()
+    for xyz in memRole:
+        memRoleName.append(xyz.name)
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
         queryResults = myUtilities.fetchWeaponDB(filteredInput)
@@ -246,9 +250,11 @@ async def wep(ctx, *a):
 
 @bot.command()
 async def armor(ctx, *a):
-    modRoleID = discord.utils.get(ctx.guild.roles, name = "Moderators")
-    modRole = ctx.guild.get_role(modRoleID)
-    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
+    memRole = ctx.author.roles
+    memRoleName = list()
+    for xyz in memRole:
+        memRoleName.append(xyz.name)
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
         queryResults = myUtilities.fetchArmorDB(filteredInput)
@@ -263,9 +269,11 @@ async def armor(ctx, *a):
 
 @bot.command()
 async def magi(ctx, *a):
-    modRoleID = discord.utils.get(ctx.guild.roles, name = "Moderators")
-    modRole = ctx.guild.get_role(modRoleID)
-    if (ctx.channel.name in channelWhiteList) or (modRole in ctx.member.roles):
+    memRole = ctx.author.roles
+    memRoleName = list()
+    for xyz in memRole:
+        memRoleName.append(xyz.name)
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
         joined = " ".join(a)
         filteredInput = myUtilities.filterInput(joined)
         queryResults = myUtilities.fetchMagiDB(filteredInput)
