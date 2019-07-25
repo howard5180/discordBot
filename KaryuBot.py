@@ -107,6 +107,7 @@ async def checkattach(ctx):
     if not ctx.message.attachments:
         await ctx.send("no attachment")
     else:
+        await ctx.send(ctx.message.attachments)
         for x in ctx.message.attachments:
             uuu = x.url
             await ctx.send(uuu)
