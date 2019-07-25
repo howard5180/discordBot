@@ -48,11 +48,16 @@ async def on_member_join(member):
 
 guild_name = ["testing","OP Clan"]
 guild_len = len(guild_name)
-chan_name = ["announce-test","bingotower-list"]
+chan_name = ["announce-test","bingo-tower-list"]
 
 
 @bot.event
 async def on_message(msg):
+    new_msg = msg.content
+    if not msg.attachments:
+        url = ""
+    else:
+        url = msg.attachments.url
     if (msg.channel.id == 470712762314784799):
         guild_list = []
         chan_list = []
@@ -102,7 +107,7 @@ async def checkattach(ctx):
     if not ctx.message.attachments:
         await ctx.send("no attachment")
     else:
-        await ctx.send("have attachment")
+        await ctx.send("have attachment"+ctx.message.attachments.url)
 
 
 bot.remove_command('help') #to overwrite discord.py's help
