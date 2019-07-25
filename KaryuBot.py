@@ -48,7 +48,7 @@ async def on_member_join(member):
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470712762314784799):
-        chan = msg.author.guild.get_channel(470713810232147988)
+        chan = msg.author.guild.get_channel(603942069903425546)
         try:
             if bot.user.id != msg.author.id:
                 await chan.send(msg.content)
