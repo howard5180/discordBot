@@ -80,6 +80,12 @@ async def atest(ctx, *a):
     await ctx.send(a)
 
 @bot.command()
+async def listtest(ctx):
+    abcde = ['a','b','c','d','e']
+    for x in abcde:
+        await ctx.send(x)
+
+@bot.command()
 async def getname(ctx):
     arole = ctx.author.roles
     await ctx.send(arole)
