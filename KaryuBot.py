@@ -107,10 +107,9 @@ async def checkattach(ctx):
     if not ctx.message.attachments:
         await ctx.send("no attachment")
     else:
-        await ctx.send(ctx.message.attachments)
+        await ctx.send(files=ctx.message.attachments)
         for x in ctx.message.attachments:
-            uuu = x.url
-            await ctx.send(uuu)
+            await ctx.send(file=x)
 
 
 bot.remove_command('help') #to overwrite discord.py's help
