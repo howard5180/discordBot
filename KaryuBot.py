@@ -48,6 +48,8 @@ async def on_member_join(member):
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470712762314784799):
+        member = msg.author
+        mem_guild = member.guild
         chan = msg.author.guild.get_channel(603942069903425546)
         try:
             if bot.user.id != msg.author.id:
@@ -74,6 +76,11 @@ async def getname(ctx):
     await ctx.send(arole)
     for x in arole:
         await ctx.send(x.name)
+
+@bot.command()
+async def getguild(ctx):
+    guild_ls = ctx.author.guild
+    await ctx.send(guild_ls)
 
 
 bot.remove_command('help') #to overwrite discord.py's help
