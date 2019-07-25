@@ -47,6 +47,7 @@ async def on_member_join(member):
 
 
 guild_name = ["testing"]
+guild_len = len(guild_name)
 chan_name = ["announce-test"]
 
 
@@ -55,14 +56,13 @@ async def on_message(msg):
     if (msg.channel.id == 470712762314784799):
         guild_list = []
         chan_list = []
-        for x in guild_name:
-            abcd = discord.utils.get(bot.guilds, name="testing")
-            guild_list.append(abcd)
+        for x in range(guild_len):
+            guild_list.append(discord.utils.get(bot.guilds, name=guild_name[x]))
             if guild_list is not None:
-                chanid = discord.utils.get(abcd.text_channels, name="announce-test")
+                chan_list.append(discord.utils.get(guild_list[x].text_channels, name=chan_name[x]))
             try:
                 if bot.user.id != msg.author.id:
-                    await chanid.send(msg.content)
+                    await chan_list[x].send(msg.content)
             except Exception:
                 pass
     await bot.process_commands(msg)
