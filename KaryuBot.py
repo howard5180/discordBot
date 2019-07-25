@@ -46,9 +46,9 @@ async def on_member_join(member):
         pass
 
 
-guild_name = ["testing"]
+guild_name = ["testing","OP Clan"]
 guild_len = len(guild_name)
-chan_name = ["announce-test"]
+chan_name = ["announce-test","bingotower-list"]
 
 
 @bot.event
@@ -96,6 +96,13 @@ async def getname(ctx):
 async def getguild(ctx):
     guild_ls = ctx.author.guild
     await ctx.send(guild_ls)
+
+@bot.command()
+async def checkattach(ctx):
+    if not ctx.message.attachments:
+        await ctx.send("no attachment")
+    else:
+        await ctx.send("have attachment")
 
 
 bot.remove_command('help') #to overwrite discord.py's help
