@@ -53,7 +53,7 @@ async def on_message(msg):
             await chan.send(msg)
         except Exception:
             pass
-    await bot.process_commands(message)
+    await bot.process_commands(msg)
 
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
