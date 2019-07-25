@@ -45,17 +45,25 @@ async def on_member_join(member):
     except Exception:
         pass
 
+
+guild_name = ["testing"]
+chan_name = ["announce-test"]
+
+
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470712762314784799):
-        member = msg.author
-        mem_guild = member.guild
-        chan = msg.author.guild.get_channel(603942069903425546)
-        try:
-            if bot.user.id != msg.author.id:
-                await chan.send(msg.content)
-        except Exception:
-            pass
+        guild_list = list()
+        chan_list = list()
+        for x in guild_name:
+            guild_list[x] = discord.utils.get(bot.guilds, name=guild_name[x])
+            if guild_list is not None:
+                chan_list[x] = discord.utils.get(guild_list[x].text_channels, name=chan_name[x])
+            try:
+                if bot.user.id != msg.author.id:
+                    await chan_list[x].send(msg.content)
+            except Exception:
+                pass
     await bot.process_commands(msg)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
