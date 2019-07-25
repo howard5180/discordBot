@@ -58,7 +58,7 @@ async def on_message(msg):
         url = ""
     else:
         url = msg.attachments.url
-    if (msg.channel.id == 470712762314784799):
+    if (msg.channel.id == 470713934517764117):
         guild_list = []
         chan_list = []
         for x in range(guild_len):
@@ -107,7 +107,9 @@ async def checkattach(ctx):
     if not ctx.message.attachments:
         await ctx.send("no attachment")
     else:
-        await ctx.send(ctx.message.attachments[0].url)
+        for x in ctx.message.attachments:
+            uuu = x.url
+            await ctx.send(uuu)
 
 
 bot.remove_command('help') #to overwrite discord.py's help
