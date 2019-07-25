@@ -53,15 +53,16 @@ chan_name = ["announce-test"]
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470712762314784799):
-        guild_list = list()
-        chan_list = list()
+        guild_list = []
+        chan_list = []
         for x in guild_name:
-            guild_list[x] = discord.utils.get(bot.guilds, name=guild_name[x])
+            abcd = discord.utils.get(bot.guilds, name="testing")
+            guild_list.append(abcd)
             if guild_list is not None:
-                chan_list[x] = discord.utils.get(guild_list[x].text_channels, name=chan_name[x])
+                chanid = discord.utils.get(abcd.text_channels, name="announce-test")
             try:
                 if bot.user.id != msg.author.id:
-                    await chan_list[x].send(msg.content)
+                    await chanid.send(msg.content)
             except Exception:
                 pass
     await bot.process_commands(msg)
