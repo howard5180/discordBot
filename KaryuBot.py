@@ -45,6 +45,15 @@ async def on_member_join(member):
     except Exception:
         pass
 
+@bot.event
+async def on_message(msg):
+    if (msg.channel.id == 470712762314784799):
+        chan = msg.member.guild.get_channel(603942069903425546)
+        try:
+            await chan.send(msg)
+        except Exception:
+            pass
+
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #miscellaneous commands
