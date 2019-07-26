@@ -9,6 +9,7 @@ import secrets
 import meme_command
 import funfact
 from datetime import datetime
+from StringIO import StringIO
 
 bot = commands.Bot(command_prefix='.')
 
@@ -107,9 +108,11 @@ async def checkattach(ctx):
     if not ctx.message.attachments:
         await ctx.send("no attachment")
     else:
-        await ctx.send(files=ctx.message.attachments)
-        for x in ctx.message.attachments:
-            await ctx.send(file=x)
+        try:
+            await ctx.send(ctx.message.attachments)
+        except:
+            await ctx.send("can't print attachments")
+
 
 
 bot.remove_command('help') #to overwrite discord.py's help
