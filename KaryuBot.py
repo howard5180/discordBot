@@ -54,11 +54,6 @@ chan_name = ["announce-test","bingo-tower-list"]
 
 @bot.event
 async def on_message(msg):
-    new_msg = msg.content
-    if not msg.attachments:
-        url = ""
-    else:
-        url = msg.attachments.url
     if (msg.channel.id == 470713934517764117):
         guild_list = []
         chan_list = []
