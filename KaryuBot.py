@@ -66,6 +66,10 @@ async def on_message(msg):
                     await chan_list[x].send(msg.content)
             except Exception:
                 pass
+    if (msg.channel.id == 470712762314784799):
+        attach_list = msg.attachments
+        await msg.channel.send(attach_list)
+
     await bot.process_commands(msg)
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -106,7 +110,7 @@ async def checkattach(ctx):
         try:
             await ctx.send(ctx.message.attachments)
         except:
-            await ctx.send("can't print attachments")
+            await ctx.send("can't print attachment list")
 
 
 
