@@ -125,6 +125,10 @@ async def checkattach(ctx):
             print("can't print attachment list")
             print(e)
 
+@bot.command()
+async def displayName(ctx):
+    await ctx.send(ctx.author.name)
+
 
 
 bot.remove_command('help') #to overwrite discord.py's help
