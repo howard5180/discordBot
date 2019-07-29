@@ -66,7 +66,7 @@ async def on_message(msg):
                         pass
                     else:
                         for y in msg.attachments:
-                            await chan_list[x].send(y)
+                            await chan_list[x].send(y.url)
             except Exception as e:
                 print(e)
     if (msg.channel.id == 470713810232147988):
