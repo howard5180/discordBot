@@ -9,7 +9,6 @@ import secrets
 import meme_command
 import funfact
 from datetime import datetime
-from StringIO import StringIO
 
 bot = commands.Bot(command_prefix='.')
 
