@@ -689,6 +689,7 @@ async def on_command_error(ctx,error):
         print("unregistered command: ",ctx.message.content)
         print("server: ",ctx.message.guild.name)
         print("channel: ",ctx.message.channel.name,"\n")
+        print(error)
 
 respondMsg = {"love":"<:heart:1234>"}
 rMsgKey = respondMsg.keys()
