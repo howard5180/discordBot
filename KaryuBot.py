@@ -98,6 +98,14 @@ async def getname(ctx):
         await ctx.send(x.name)
 
 @bot.command()
+async def getrolelist(ctx):
+    try:
+        alist = ctx.author.roles
+        await ctx.send(alist)
+    except Exception as e:
+        print(e)
+
+@bot.command()
 async def getguild(ctx):
     guild_ls = ctx.author.guild
     await ctx.send(guild_ls)
