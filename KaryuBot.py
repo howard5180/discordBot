@@ -54,6 +54,7 @@ chan_name = ["announce-test","bingo-tower-list"]
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470713934517764117):
+        wholemsg = "**" + msg.author.display_name + "** posted in __" + msg.guild.name + "__'s <#470713934517764117>:\n\n" + msg.content
         guild_list = []
         chan_list = []
         for x in range(guild_len):
@@ -61,7 +62,7 @@ async def on_message(msg):
             chan_list.append(discord.utils.get(guild_list[x].text_channels, name=chan_name[x]))
             try:
                 if bot.user.id != msg.author.id:
-                    await chan_list[x].send(msg.content)
+                    await chan_list[x].send(wholemsg)
                     if not msg.attachments:
                         pass
                     else:
@@ -69,13 +70,7 @@ async def on_message(msg):
                             await chan_list[x].send(y.url)
             except Exception as e:
                 print(e)
-    if (msg.channel.id == 470713810232147988):
-        if bot.user.id != msg.author.id:
-            try:
-                wholemsg = "**" + msg.author.display_name + "** posted in __" + msg.guild.name + "__'s <#470713934517764117>:\n\n" + msg.content
-                await msg.channel.send(wholemsg)
-            except Exception as e:
-                print(e)
+
 
 
     await bot.process_commands(msg)
