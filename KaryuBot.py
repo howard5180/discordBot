@@ -46,9 +46,9 @@ async def on_member_join(member):
         pass
 
 
-guild_name = ["testing","OP Clan"]
+guild_name = ["testing","OP Clan","New Dawn"]
 guild_len = len(guild_name)
-chan_name = ["announce-test","bingo-tower-list"]
+chan_name = ["announce-test","bingo-tower-list","guides"]
 
 
 @bot.event
