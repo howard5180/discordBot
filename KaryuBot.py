@@ -111,7 +111,7 @@ async def checkattach(ctx):
         await ctx.send("no attachment")
     else:
         try:
-            print(ctx.message.attachments)
+            print(ctx.message.attachment)
         except Exception as e:
             print("can't print attachment list")
             print(e)
