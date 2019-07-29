@@ -59,8 +59,7 @@ async def on_message(msg):
         chan_list = []
         for x in range(guild_len):
             guild_list.append(discord.utils.get(bot.guilds, name=guild_name[x]))
-            if guild_list is not None:
-                chan_list.append(discord.utils.get(guild_list[x].text_channels, name=chan_name[x]))
+            chan_list.append(discord.utils.get(guild_list[x].text_channels, name=chan_name[x]))
             try:
                 if bot.user.id != msg.author.id:
                     await chan_list[x].send(msg.content)
@@ -695,6 +694,7 @@ async def on_command_error(ctx,error):
         print("unregistered command: ",ctx.message.content)
         print("server: ",ctx.message.guild.name)
         print("channel: ",ctx.message.channel.name,"\n")
+        print(error)
 
 respondMsg = {"love":"<:heart:1234>"}
 rMsgKey = respondMsg.keys()
