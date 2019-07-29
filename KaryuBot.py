@@ -72,7 +72,7 @@ async def on_message(msg):
     if (msg.channel.id == 470713810232147988):
         if bot.user.id != msg.author.id:
             try:
-                wholemsg = "**" + msg.author.display_name + "** posted in " + msg.guild.name + ":\n" + msg.content
+                wholemsg = "**" + msg.author.display_name + "** posted in __" + msg.guild.name + "__'s <#470713934517764117>:\n\n" + msg.content
                 await msg.channel.send(wholemsg)
             except Exception as e:
                 print(e)
