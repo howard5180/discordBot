@@ -71,12 +71,11 @@ async def on_message(msg):
                 print(e)
     if (msg.channel.id == 470713810232147988):
         if bot.user.id != msg.author.id:
-            await msg.channel.send(msg.content)
-            if not msg.attachments:
-                pass
-            else:
-                for y in msg.attachments:
-                    await msg.channel.send(y.url)
+            try:
+                wholemsg = "**" + msg.author.display_name + "** posted in " + msg.guild.name + ":\n" + msg.content
+                await msg.channel.send(wholemsg)
+            except Exception as e:
+                print(e)
 
 
     await bot.process_commands(msg)
