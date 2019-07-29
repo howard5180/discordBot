@@ -62,8 +62,22 @@ async def on_message(msg):
             try:
                 if bot.user.id != msg.author.id:
                     await chan_list[x].send(msg.content)
+                    if not msg.attachments:
+                        pass
+                    else:
+                        for y in msg.attachments:
+                            await chan_list[x].send(y)
             except Exception as e:
                 print(e)
+    if (msg.channel.id == 470713810232147988):
+        if bot.user.id != msg.author.id:
+            await msg.channel.send(msg.content)
+            if not msg.attachments:
+                pass
+            else:
+                for y in msg.attachments:
+                    await msg.channel.send.send(y)
+
 
     await bot.process_commands(msg)
 
