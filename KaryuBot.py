@@ -76,7 +76,7 @@ async def on_message(msg):
                 pass
             else:
                 for y in msg.attachments:
-                    await msg.channel.send.send(y)
+                    await msg.channel.send(y.url)
 
 
     await bot.process_commands(msg)
