@@ -12,6 +12,17 @@ from datetime import datetime
 
 bot = commands.Bot(command_prefix='.')
 
+async def checkPirate():
+    await bot.wait_until_ready()
+    currentTime = datetime.utcnow()
+    currentMinute = currentTime.minute
+    guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
+    channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
+    while not bot.is_closed:
+        #if currentMinute == 59:
+        await channel.send("Hello za WARUDO")
+        await asyncio.sleep(60) #perform check every 60 sec
+
 @bot.event
 async def on_ready():
     print('------')
@@ -724,18 +735,6 @@ rMsgKey = respondMsg.keys()
 #                pass
 
 #    await bot.process_commands(message)
-
-async def checkPirate():
-    await bot.wait_until_ready()
-    currentTime = datetime.utcnow()
-    currentMinute = currentTime.minute
-    guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
-    channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
-    while not bot.is_closed:
-        if currentMinute == 59:
-            await channel.send("almost time for pirate loot")
-        await asyncio.sleep(60) #perform check every 60 sec
-
 
 #async def checkHalfPrice()
 
