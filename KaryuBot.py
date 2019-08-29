@@ -13,7 +13,7 @@ from datetime import datetime
 bot = commands.Bot(command_prefix='.')
 
 async def checkPirate():
-    await bot.wait_until_ready()
+    #await bot.wait_until_ready()
     currentTime = datetime.utcnow()
     currentMinute = currentTime.minute
     guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
