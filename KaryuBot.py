@@ -22,16 +22,20 @@ async def on_ready():
 
 async def checkPirate():
     await bot.wait_until_ready()
+    isSent = False
     guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
     channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
     while True:
         currentTime = datetime.utcnow()
         currentMinute = currentTime.minute
-        if currentMinute == 59:
+        if currentMinute == 59 and not isSent:
             await channel.send("<@&616691697254006815> Pirate Loot will be resetting in a minute")
+            isSent = True
+        elif currentMinute != 59 and isSent:
+            isSent = False
         else:
             print(currentMinute)
-        await asyncio.sleep(60) #perform check every 60 sec
+        await asyncio.sleep(10) #perform check every 60 sec
 
 async def checkHalfPrice():
     await bot.wait_until_ready()
