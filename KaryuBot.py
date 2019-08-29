@@ -31,6 +31,10 @@ async def checkPirate():
             await channel.send("<@&616691697254006815> Pirate Loot will be resetting in a minute")
         await asyncio.sleep(60) #perform check every 60 sec
 
+async def checkHalfPrice():
+    await bot.wait_until_ready()
+
+
 #welcome message
 @bot.event
 async def on_member_join(member):
@@ -528,6 +532,8 @@ async def removerole(ctx, *a):
                 role_num = 2
             elif msg in carry_list:
                 role_num = 3
+            elif msg in pirate_list:
+                role_num = 4
             roleID = discord.utils.get(ctx.guild.roles, name = role_list[role_num])
             if (roleID not in member.roles):
                 msg = "You don't have the " + role_list[role_num] + " role"
@@ -739,7 +745,6 @@ rMsgKey = respondMsg.keys()
 
 #    await bot.process_commands(message)
 
-#async def checkHalfPrice()
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
