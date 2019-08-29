@@ -18,11 +18,11 @@ async def checkPirate():
     currentMinute = currentTime.minute
     #guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
     #channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
-    while not bot.is_closed:
+    #while not bot.is_closed:
         #if currentMinute == 59:
         #await channel.send("Hello za WARUDO")
-        print("Hellow za WARUDO")
-        await asyncio.sleep(10) #perform check every 60 sec
+    print("Hellow za WARUDO")
+    await asyncio.sleep(10) #perform check every 60 sec
 
 @bot.event
 async def on_ready():
