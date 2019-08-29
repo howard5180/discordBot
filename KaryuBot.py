@@ -27,8 +27,8 @@ async def checkPirate():
     guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
     channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
     while True:
-        #if currentMinute == 59:
-        await channel.send("Hello za WARUDO")
+        if currentMinute == 59:
+            await channel.send("<@&616691697254006815> Pirate Loot will be resetting in a minute")
         await asyncio.sleep(60) #perform check every 60 sec
 
 #welcome message
@@ -473,11 +473,12 @@ async def adderror(ctx,error):
 
 #add and remove roles (for tower, br, expo and general)
 
-role_list = ["Tower Elevator", "BR Maniac", "Crystal Farmer", "Carry Master"]
+role_list = ["Tower Elevator", "BR Maniac", "Crystal Farmer", "Carry Master", "Pirate Ping"]
 tower_list = ["tower elevator", "tower", "elevator", "beast tower"]
 br_list = ["br", "battle royale", "battle", "royale", "maniac", "br maniac"]
 expo_list = ["expo", "expedition", "farmer", "crystal", "crystal farmer"]
 carry_list = ["carry master", "carry", "master"]
+pirate_list = ["pirate ping", "pirate", "ping", "pp"]
 
 #add role
 @bot.command()
@@ -495,6 +496,8 @@ async def addrole(ctx, *a):
                 role_num = 2
             elif msg in carry_list:
                 role_num = 3
+            elif msg in pirate_list:
+                role_num = 4
             roleID = discord.utils.get(ctx.guild.roles, name = role_list[role_num])
             if (roleID in member.roles):
                 msg = "You already have the " + role_list[role_num] + " role"
