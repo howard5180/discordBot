@@ -22,11 +22,11 @@ async def on_ready():
 
 async def checkPirate():
     await bot.wait_until_ready()
-    currentTime = datetime.utcnow()
-    currentMinute = currentTime.minute
     guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
     channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
     while True:
+        currentTime = datetime.utcnow()
+        currentMinute = currentTime.minute
         if currentMinute == 59:
             await channel.send("<@&616691697254006815> Pirate Loot will be resetting in a minute")
         else:
