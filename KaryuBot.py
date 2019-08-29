@@ -29,6 +29,8 @@ async def checkPirate():
     while True:
         if currentMinute == 59:
             await channel.send("<@&616691697254006815> Pirate Loot will be resetting in a minute")
+        else:
+            print(currentMinute)
         await asyncio.sleep(60) #perform check every 60 sec
 
 async def checkHalfPrice():
