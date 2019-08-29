@@ -12,6 +12,14 @@ from datetime import datetime
 
 bot = commands.Bot(command_prefix='.')
 
+@bot.event
+async def on_ready():
+    print('------')
+    print('Logged in as')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('------')
+
 async def checkPirate():
     #await bot.wait_until_ready()
     currentTime = datetime.utcnow()
@@ -25,14 +33,6 @@ async def checkPirate():
     #await channel.send("Hello za WARUDO")
     #print("Hellow za WARUDO")
     await asyncio.sleep(60) #perform check every 60 sec
-
-@bot.event
-async def on_ready():
-    print('------')
-    print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
 
 #welcome message
 @bot.event
