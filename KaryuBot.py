@@ -24,7 +24,7 @@ async def checkPirate():
     #await bot.wait_until_ready()
     currentTime = datetime.utcnow()
     currentMinute = currentTime.minute
-    while true:
+    while True:
         print(bot.guilds)
         guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
         print(guild_name)
