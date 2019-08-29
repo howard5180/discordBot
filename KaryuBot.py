@@ -487,7 +487,7 @@ async def addrole(ctx, *a):
     msg = msgInput.lower()
     member = ctx.message.author
     if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
-        if (msg in tower_list) or (msg in br_list) or (msg in expo_list) or (msg in carry_list):
+        if (msg in tower_list) or (msg in br_list) or (msg in expo_list) or (msg in carry_list) or (msg in pirate_list):
             if msg in tower_list:
                 role_num = 0
             elif msg in br_list:
@@ -519,7 +519,7 @@ async def removerole(ctx, *a):
     msg = msgInput.lower()
     member = ctx.message.author
     if (ctx.channel.name == "weapon-class") or (ctx.channel.name == "bot_testing"):
-        if (msg in tower_list) or (msg in br_list) or (msg in expo_list) or (msg in carry_list):
+        if (msg in tower_list) or (msg in br_list) or (msg in expo_list) or (msg in carry_list) or (msg in pirate_list):
             if msg in tower_list:
                 role_num = 0
             elif msg in br_list:
