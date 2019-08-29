@@ -20,7 +20,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-
+#welcome message
 @bot.event
 async def on_member_join(member):
     welcome_msg_start = ["<:dphello:365891704013979648> **<@{0}>**! Welcome to Dragon Project Community Server. Here's something you can do:",
@@ -50,7 +50,7 @@ guild_name = ["testing","OP Clan","New Dawn","[DPG] Rain"]
 guild_len = len(guild_name)
 chan_name = ["announce-test","bingo-tower-list","guides","guides"]
 
-
+#post dp-gloabl-info posts in other server
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470713934517764117):
@@ -258,6 +258,7 @@ async def reroll(ctx):
     else:
         msg = startMsg + dayMsg + hourMsg + minMsg + " until ability half price starts"
     await ctx.send(msg)
+    
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #database search command
@@ -724,10 +725,23 @@ rMsgKey = respondMsg.keys()
 
 #    await bot.process_commands(message)
 
+async def checkPirate():
+    await bot.wait_until_ready()
+    currentTime = datetime.utcnow()
+    currentMinute = currentTime.minute
+    guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
+    channel = discord.utils.get(guild_name.text_channels, name="pirate-ping")
+    while not bot.is_closed:
+        if currentMinute == 59:
+            await channel.send("almost time for pirate loot")
+        await asyncio.sleep(60) #perform check every 60 sec
 
+
+#async def checkHalfPrice()
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #run bot
 
 #karyu token
+bot.loop.create_task(checkPirate())
 bot.run(secrets.getToken())
