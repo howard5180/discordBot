@@ -34,12 +34,30 @@ async def checkPirate():
         elif currentMinute != 59 and isSent:
             isSent = False
         else:
-            print(currentMinute)
-        await asyncio.sleep(10) #perform check every 60 sec
+            pass
+        await asyncio.sleep(10) #perform check every 10 sec
 
 async def checkHalfPrice():
     await bot.wait_until_ready()
-
+    isSent = False
+    guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
+    channel = discord.utils.get(guild_name.text_channels, name="hunters-lounge")
+    while True:
+        currentTime = datetime.utcnow()
+        currentHour = currentTime.hour
+        currentMinute = currentTime.minute
+        weekday = currentTime.weekday()
+        if weekday == 2:
+            if currentHour == 0 and currentMinute == 0 and not isSent:
+                await channel.send("Ability half price starts. Time to waste your gold.\n金を捧げよ！")
+                isSent = True
+            elif currentHour != 0 and isSent:
+                isSent = False
+            else:
+                pass
+        else:
+            pass
+        await asyncio.sleep(60) #perform check every minute
 
 #welcome message
 @bot.event
@@ -171,7 +189,7 @@ async def help(ctx):
     emb.add_field(name = "Weapon information:", value = "`.wep <behemoth name>`", inline=True)
     emb.add_field(name = "Armor information:", value = "`.armor <behemoth name>`", inline=True)
     emb.add_field(name = "Class command:", value = "`.addclass <class>` and `.removeclass <class>`\nAvailable class: `sns` `gs` `spear` `db` `bow`", inline=False)
-    emb.add_field(name = "Role command:", value = "`.addrole <role>` and `.removerole <role>`\nAvailable roles: `tower`, `br`, `expo`, `carry`",inline=False)
+    emb.add_field(name = "Role command:", value = "`.addrole <role>` and `.removerole <role>`\nAvailable roles: `tower`, `br`, `expo`, `carry`, `pirate`",inline=False)
     emb.add_field(name = "Behemoth Summon simulation:", value = "`.behesim single` or `.behesim multi <step number>` \nP.S. Step is default as 1 if not specified", inline=False)
     emb.add_field(name = "Magi Summon simulation:", value = "`.magisim <single/multi>`", inline=False)
     emb.add_field(name = "List of meme command:", value = "`.memelist`", inline=True)
@@ -254,36 +272,12 @@ async def reroll(ctx):
         remainDay = 8 - weekday
     remainHour = 23 - currentHour
     remainMinute = 59 - currentMinute
-    startMsg = "There are "
-    if remainDay == 1:
-        dayMsg = str(remainDay) + " day"
-    elif remainDay == 0:
-        dayMsg = " "
-    else:
-        dayMsg = str(remainDay) + " days"
-    if remainHour == 1:
-        hourMsg = str(remainHour) + " hour and "
-        if remainDay != 0:
-            dayMsg += ", "
-    elif remainHour == 0:
-        hourMsg = " "
-    else:
-        hourMsg = str(remainHour) + " hours and "
-        dayMsg += ", "
-    if remainMinute == 1:
-        minMsg = str(remainMinute) + " minute"
-        if remainDay != 0 or remainHour != 0:
-            startMsg = "There is "
-    elif remainMinute == 0:
-        minMsg = "less than a minute"
-        if remainDay != 0 or remainHour != 0:
-            startMsg = "There is "
-    else:
-        minMsg = str(remainMinute) + " minutes"
+    startMsg = "Time remaining until ability half price "
     if weekday == 2:
-        msg = startMsg + hourMsg +  minMsg + " until ability half price ends"
+        a = "ends: "
     else:
-        msg = startMsg + dayMsg + hourMsg + minMsg + " until ability half price starts"
+        a = "starts: "
+    msg = startMsg + a + str(remainDay) + " day(s), " + str(remainHour) + " hours(s) and " + str(remainMinute) + " minute(s)"
     await ctx.send(msg)
     
 
