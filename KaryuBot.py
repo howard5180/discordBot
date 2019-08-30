@@ -277,7 +277,7 @@ async def reroll(ctx):
         a = "ends: "
     else:
         a = "starts: "
-    msg = startMsg + a + str(remainDay) + " day(s), " + str(remainHour) + " hours(s) and " + str(remainMinute) + " minute(s)"
+    msg = startMsg + a + str(remainDay) + " day(s), " + str(remainHour) + " hour(s) and " + str(remainMinute) + " minute(s)"
     await ctx.send(msg)
     
 
