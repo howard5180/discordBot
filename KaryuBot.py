@@ -444,7 +444,7 @@ async def addclass(ctx,*a):
         else:
             await ctx.send("It's an invalid class. For available classes please check `.help`")
     else:
-        await ctx.send("You can't use this command here")
+        await ctx.send("Please use this function in <#617419271437287599>")
 
 #remove class
 @bot.command()
@@ -475,7 +475,7 @@ async def removeclass(ctx,*a):
         else:
             await ctx.send("It's an invalid class. For available classes please check `.help`")
     else:
-        await ctx.send("You can't use this command here")
+        await ctx.send("Please use this function in <#617419271437287599>")
 
 @addclass.error
 async def adderror(ctx,error):
@@ -519,7 +519,7 @@ async def addrole(ctx, *a):
         else:
             msg = "It's an invalid role. For available roles please check `.help`"
     else:
-        msg = "You can't use this command here"
+        msg = "Please use this function in <#617419271437287599>"
         await ctx.send(msg)
 
 #remove role
@@ -551,7 +551,7 @@ async def removerole(ctx, *a):
         else:
             msg = "It's an invalid role. For available roles please check `.help`"
     else:
-        msg = "You can't use this command here"
+        msg = "Please use this function in <#617419271437287599>"
         await ctx.send(msg)
 
 
