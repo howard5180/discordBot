@@ -444,7 +444,7 @@ async def addclass(ctx,*a):
         else:
             await ctx.send("It's an invalid class. For available classes please check `.help`")
     else:
-        await ctx.send("Please use this function in <#470713716573208576>")
+        await ctx.send("Please use this function in <#470713716573208576> #weapon-class")
 
 #remove class
 @bot.command()
