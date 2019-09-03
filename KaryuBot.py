@@ -124,8 +124,7 @@ async def add(ctx, a: int, b: int):
 @bot.command()
 async def abcdefg(ctx):
     currentTime = datetime.utcnow()
-    currentMinute = currentTime.minute
-    await ctx.send(currentMinute)
+    await ctx.send(currentTime)
 
 @bot.command()
 async def atest(ctx, *a):
