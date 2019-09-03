@@ -42,22 +42,26 @@ async def checkHalfPrice():
     isSent = False
     guild_name = discord.utils.get(bot.guilds, name="Dragon Project")
     channel = discord.utils.get(guild_name.text_channels, name="hunters-lounge")
+    sleeptime = 3600
     while True:
         currentTime = datetime.utcnow()
         currentHour = currentTime.hour
         currentMinute = currentTime.minute
         weekday = currentTime.weekday()
+        if weekday == 1 and currentHour == 23:
+            sleeptime == 60 #change loop time to 1 minute when it's 1 hour b4 reroll
         if weekday == 2:
             if currentHour == 0 and currentMinute == 0 and not isSent:
                 await channel.send("Ability half price starts. Time to waste your gold.\n金を捧げよ！")
                 isSent = True
+                sleeptime = 3600 #switch back loop time to 1 hour
             elif currentHour != 0 and isSent:
                 isSent = False
             else:
                 pass
         else:
             pass
-        await asyncio.sleep(60) #perform check every minute
+        await asyncio.sleep(sleeptime) #perform check every minute
 
 #welcome message
 @bot.event
