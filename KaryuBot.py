@@ -45,11 +45,10 @@ async def checkHalfPrice():
     while True:
         currentTime = datetime.utcnow()
         currentHour = currentTime.hour
-        currentMinute = currentTime.minute
         weekday = currentTime.weekday()
         if weekday == 2:
             if currentHour == 0 and not isSent:
-                await channel.send("Ability half price starts. Time to waste your gold.\n金を捧げよ！")
+                await channel.send("Ability half price starts. Time to waste your gold.\n金を捧げよ！ <:GoldCoin:350488194732785665>")
                 isSent = True
             elif currentHour != 0 and isSent:
                 isSent = False
@@ -274,6 +273,7 @@ async def reroll(ctx):
     startMsg = "Time remaining until ability half price "
     if weekday == 2:
         a = "ends: "
+        remainDay = 0
     else:
         a = "starts: "
     msg = startMsg + a + str(remainDay) + " day(s), " + str(remainHour) + " hour(s) and " + str(remainMinute) + " minute(s)"
