@@ -586,10 +586,15 @@ def formatSim(msg):
 
 #def multiMsg(msg):
 
+sim_channel = ["bot-playroom","bot_testing"]
 
 @bot.command()
 async def behesim(ctx, count: str, step: int = 1):
-    if (ctx.message.channel.name == "bot-playroom") or (ctx.message.channel.name == "bot_testing"):
+    memRole = ctx.author.roles
+    memRoleName = list()
+    for xyz in memRole:
+        memRoleName.append(xyz.name)
+    if (ctx.channel.name in sim_channel) or ("Moderators" in memRoleName):
         sim_result = ""
         sim_count = 0
         if count == "single":
@@ -600,7 +605,7 @@ async def behesim(ctx, count: str, step: int = 1):
         elif count == "multi":
             if (step >= 1) and (step <= 5):
                 while sim_count != 10:
-                    sim_result += (summon_sim(step)+", ")
+                    sim_result += (summon_sim(step)+",")
                     sim_count += 1
                 if "SS" in sim_result:
                     sim_result += "SS"
@@ -624,7 +629,11 @@ async def behesim_error(ctx,error):
 
 @bot.command()
 async def magisim(ctx, count: str):
-    if ctx.message.channel.name == "bot-playroom":
+    memRole = ctx.author.roles
+    memRoleName = list()
+    for xyz in memRole:
+        memRoleName.append(xyz.name)
+    if (ctx.channel.name in sim_channel) or ("Moderators" in memRoleName):
         sim_result = ""
         sim_count = 0
         if count == "single":
