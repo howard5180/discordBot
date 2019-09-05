@@ -559,16 +559,33 @@ async def removerole(ctx, *a):
 sim_s_behe_end_msg = {"B":"Try harder next time <a:WHALEHARD:462505685800845312>",
                      "A":"At least a tiny step to LB a SS gear <:heyooo:382266699065589760>",
                      "S":"Oh you thought the gold circle will give you a SS? But it's just another LB fodder ( ͡° ͜ʖ ͡°)",
-                     "SS":"What is this luck? <:slimeWut:472120440119099392>"}
+                     "SS":"What is this luck? <:slimeWut:472120440119099392>",
+                     "SSS":"Nani!? Did you tamed Axel? <:dpcongrats:482206735852109852> anyway"}
 sim_s_magi_end_msg = {"B":"Try harder next time <a:WHALEHARD:462505685800845312>",
                      "A":"At least a tiny step to awaken a SS magi <:heyooo:454450358257844224>",
                      "S":"Oh you thought the gold lottery machine will give you a SS? But it's just another awakening fodder ( ͡° ͜ʖ ͡°)",
-                     "SS":"What is this luck? <:slimeWut:472120440119099392>"}
+                     "SS":"What is this luck? <:slimeWut:472120440119099392>",
+                     "SSS":"Wew, that's some insane ~~whale~~ luck power there"}
 sim_m_end_msg = ["RNG machine is working as usual huh? Try to <a:WHALEHARD:462505685800845312> next time",
                  "You got lucky there with 1 SS. Why not pull moar? <:hue:454309821798154240>",
                  "Guess you told Boldon to roll a lot of Luck ability on your gear? <:boldonstare:382267568435625985>",
                  "Did you bribe RNG? <:slimeWut:472120440119099392>",
                  "Oh no. Look behind you. A salt hill is coming\nhttps://gfycat.com/EssentialShortHypsilophodon"]
+
+def formatSim(msg):
+    result = msg.split(",")
+    fin = ""
+    for x in len(result):
+        fin += result[x]
+        count = x+1
+        if count%3 == 0:
+            fin += "\n"
+        else:
+            fin += "\t"
+    return fin
+
+#def multiMsg(msg):
+
 
 @bot.command()
 async def behesim(ctx, count: str, step: int = 1):
@@ -578,7 +595,7 @@ async def behesim(ctx, count: str, step: int = 1):
         if count == "single":
             sim_result += summon_sim(1)
             msg = ("**{0}** snapped finger at the banner and...."
-                    "\n\n**" + sim_result + " rank** behemoth came out!\n" + sim_s_behe_end_msg[sim_result]).format(ctx.message.author.name)
+                    "\n\n**" + sim_result + " ** behemoth came out!\n" + sim_s_behe_end_msg[sim_result]).format(ctx.message.author.name)
             await ctx.send(msg)
         elif count == "multi":
             if (step >= 1) and (step <= 5):
@@ -587,13 +604,15 @@ async def behesim(ctx, count: str, step: int = 1):
                     sim_count += 1
                 if "SS" in sim_result:
                     sim_result += "SS"
+                elif "SSS" in sim_result:
+                    sim_result += "SSS"
                 else:
                     sim_result += summon_sim_last(step)
                 SS_count = sim_result.count("SS")
                 if SS_count >= 4:
                     SS_count = 4
                 msg = ("**{0}** snapped finger at the banner with {1}\% SS rate and...."
-                       "\n\n**" + sim_result + " rank** behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
+                       "\n\n**" + formatSim(sim_result) + "\n** behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
                 await ctx.send(msg)
             else:
                 await ctx.send("The step you entered doesn't look right")
@@ -611,21 +630,23 @@ async def magisim(ctx, count: str):
         if count == "single":
             sim_result += summon_sim(1)
             msg = ("**{0}** kicked off Pikke and spin the lottery machine...."
-                    "\n\n**" + sim_result + " rank** magi came out!\n" + sim_s_magi_end_msg[sim_result]).format(ctx.message.author.name)
+                    "\n\n**" + sim_result + " ** magi came out!\n" + sim_s_magi_end_msg[sim_result]).format(ctx.message.author.name)
             await ctx.send(msg)
         elif count == "multi":
             while sim_count != 10:
-                sim_result += (summon_sim(1)+", ")
+                sim_result += (summon_sim(1)+",")
                 sim_count += 1
             if "SS" in sim_result:
                 sim_result += "SS"
+            elif "SSS" in sim_result:
+                sim_result += "SSS"
             else:
                 sim_result += summon_sim_last(1)
             SS_count = sim_result.count("SS")
             if SS_count >= 4:
                 SS_count = 4
             msg = ("**{0}** kicked off Pikke and spin the lottery machine...."
-                   "\n\n**" + sim_result + " rank** magis pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name)
+                   "\n\n**" + sim_result + "\n** magis pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name)
             await ctx.send(msg)
     else:
         await ctx.send("Please go to <#470713788291874837> to play with the summon simulation")
@@ -635,13 +656,16 @@ async def magisim_error(ctx,error):
 
 def summon_sim(step):
     rand_rate = random.randint(1,100)
-    SS = 3
+    SSS = 1
+    SS = SSS + 3
     while step != 1:
         SS += 1
         step -= 1
     S = SS+15
     A = S+55
-    if (rand_rate <= SS):
+    if (rand_rate <= SSS):
+        return "SSS"
+    elif (rand_rate <= SS):
         return "SS"
     elif (rand_rate <= S):
         return "S"
@@ -652,11 +676,14 @@ def summon_sim(step):
 
 def summon_sim_last(step):
     rand_rate = random.randint(1,100)
+    SSS = 1
     SS = 3
     while step != 1:
         SS += 1
         step -= 1
-    if (rand_rate <= SS):
+    if (rand_rate <= SSS):
+        return "SSS"
+    elif (rand_rate <= SSS+SS):
         return "SS"
     else:
         return "S"
