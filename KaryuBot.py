@@ -585,7 +585,22 @@ def formatSim(msg):
         count += 1
     return fin
 
-#def multiMsg(msg):
+def endMsg(msg):
+    result = msg.split(",")
+    ss_count = 0
+    sss_count = 0
+    for x in result:
+        if x == "SS":
+            ss_count+=1
+        elif x == "SSS":
+            sss_count+=1
+        else:
+            pass
+    if sss_count >= 1:
+        endmsg = "Time to flex those SSS magi <:Gem:350488158170775552> <:Gem:350488158170775552> <:Gem:350488158170775552>"
+    else:
+        endmsg = sim_m_end_msg[ss_count]
+    return endmsg
 
 sim_channel = ["bot-playroom","bot_testing"]
 
@@ -619,7 +634,7 @@ async def behesim(ctx, count: str, step: int = 1):
                 if SS_count >= 4:
                     SS_count = 4
                 msg = ("**{0}** snapped finger at the banner with {1}\% SS rate and...."
-                       "\n\n**" + formatSimResult + "\n**behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
+                       "\n\n**" + formatSimResult + "\n**behemoths pop out!!!\n" + endMsg(sim_result)).format(ctx.message.author.name,(step+2))
                 await ctx.send(msg)
             else:
                 await ctx.send("The step you entered doesn't look right")
@@ -658,7 +673,7 @@ async def magisim(ctx, count: str):
             if SS_count >= 4:
                 SS_count = 4
             msg = ("**{0}** kicked off Pikke and spin the lottery machine...."
-                   "\n\n**" + sim_result + "\n**magis pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name)
+                   "\n\n**" + sim_result + "\n**magis pop out!!!\n" + endMsg(sim_result)).format(ctx.message.author.name)
             await ctx.send(msg)
     else:
         await ctx.send("Please go to <#470713788291874837> to play with the summon simulation")
