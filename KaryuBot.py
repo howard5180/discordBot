@@ -614,10 +614,11 @@ async def behesim(ctx, count: str, step: int = 1):
                 else:
                     sim_result += summon_sim_last(step)
                 SS_count = sim_result.count("SS")
+                formatSimResult = formatSim(sim_result)
                 if SS_count >= 4:
                     SS_count = 4
                 msg = ("**{0}** snapped finger at the banner with {1}\% SS rate and...."
-                       "\n\n**" + formatSim(sim_result) + "\n** behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
+                       "\n\n**" + formatSimResult + "\n** behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
                 await ctx.send(msg)
             else:
                 await ctx.send("The step you entered doesn't look right")
@@ -626,6 +627,7 @@ async def behesim(ctx, count: str, step: int = 1):
 @behesim.error
 async def behesim_error(ctx,error):
     await ctx.send("Try again and state if you want single or multi summon, and enter a valid step number if it's multi pull")
+    print(error)
 
 @bot.command()
 async def magisim(ctx, count: str):
