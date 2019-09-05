@@ -575,13 +575,14 @@ sim_m_end_msg = ["RNG machine is working as usual huh? Try to <a:WHALEHARD:46250
 def formatSim(msg):
     result = msg.split(",")
     fin = ""
-    for x in len(result):
-        fin += result[x]
-        count = x+1
+    count = 1
+    for x in result:
+        fin += x
         if count%3 == 0:
             fin += "\n"
         else:
             fin += "\t"
+        count += 1
     return fin
 
 #def multiMsg(msg):
@@ -607,10 +608,10 @@ async def behesim(ctx, count: str, step: int = 1):
                 while sim_count != 10:
                     sim_result += (summon_sim(step)+",")
                     sim_count += 1
-                if "SS" in sim_result:
-                    sim_result += "SS"
-                elif "SSS" in sim_result:
+                if "SSS" in sim_result:
                     sim_result += "SSS"
+                elif "SS" in sim_result:
+                    sim_result += "SS"
                 else:
                     sim_result += summon_sim_last(step)
                 SS_count = sim_result.count("SS")
@@ -618,7 +619,7 @@ async def behesim(ctx, count: str, step: int = 1):
                 if SS_count >= 4:
                     SS_count = 4
                 msg = ("**{0}** snapped finger at the banner with {1}\% SS rate and...."
-                       "\n\n**" + formatSimResult + "\n** behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
+                       "\n\n**" + formatSimResult + "\n**behemoths pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name,(step+2))
                 await ctx.send(msg)
             else:
                 await ctx.send("The step you entered doesn't look right")
@@ -626,7 +627,7 @@ async def behesim(ctx, count: str, step: int = 1):
         await ctx.send("Please go to <#470713788291874837> to play with the summon simulation")
 @behesim.error
 async def behesim_error(ctx,error):
-    await ctx.send("Try again and state if you want single or multi summon, and enter a valid step number if it's multi pull")
+    await ctx.send("Try again and state if you want single or multi summon, and enter a valid step number if it's multi pull\nFull command looks like this: `.behesim <single/multi> <step>`")
     print(error)
 
 @bot.command()
@@ -657,13 +658,13 @@ async def magisim(ctx, count: str):
             if SS_count >= 4:
                 SS_count = 4
             msg = ("**{0}** kicked off Pikke and spin the lottery machine...."
-                   "\n\n**" + sim_result + "\n** magis pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name)
+                   "\n\n**" + sim_result + "\n**magis pop out!!!\n" + sim_m_end_msg[SS_count]).format(ctx.message.author.name)
             await ctx.send(msg)
     else:
         await ctx.send("Please go to <#470713788291874837> to play with the summon simulation")
 @magisim.error
 async def magisim_error(ctx,error):
-    await ctx.send("Try again and state if you want single or multi summon")
+    await ctx.send("Try again and state if you want single or multi summon\nFull command looks like this: `.magisim <single/multi>`")
 
 def summon_sim(step):
     rand_rate = random.randint(1,100)
