@@ -585,7 +585,7 @@ def formatSim(msg):
         count += 1
     return fin
 
-def endMsg(msg):
+def endMsg(msg, abc):
     result = msg.split(",")
     ss_count = 0
     sss_count = 0
@@ -597,7 +597,7 @@ def endMsg(msg):
         else:
             pass
     if sss_count >= 1:
-        endmsg = "Time to flex those SSS magi <:Gem:350488158170775552> <:Gem:350488158170775552> <:Gem:350488158170775552>"
+        endmsg = "Time to flex those SSS {0} <:Gem:350488158170775552> <:Gem:350488158170775552> <:Gem:350488158170775552>".format(abc)
     else:
         endmsg = sim_m_end_msg[ss_count]
     return endmsg
@@ -629,12 +629,8 @@ async def behesim(ctx, count: str, step: int = 1):
                     sim_result += "SS"
                 else:
                     sim_result += summon_sim_last(step)
-                SS_count = sim_result.count("SS")
-                formatSimResult = formatSim(sim_result)
-                if SS_count >= 4:
-                    SS_count = 4
                 msg = ("**{0}** snapped finger at the banner with {1}\% SS rate and...."
-                       "\n\n**" + formatSimResult + "\n**behemoths pop out!!!\n" + endMsg(sim_result)).format(ctx.message.author.name,(step+2))
+                       "\n\n**" + formatSim(sim_result) + "\n**behemoths pop out!!!\n" + endMsg(sim_result,"gear")).format(ctx.message.author.name,(step+2))
                 await ctx.send(msg)
             else:
                 await ctx.send("The step you entered doesn't look right")
@@ -669,11 +665,8 @@ async def magisim(ctx, count: str):
                 sim_result += "SSS"
             else:
                 sim_result += summon_sim_last(1)
-            SS_count = sim_result.count("SS")
-            if SS_count >= 4:
-                SS_count = 4
             msg = ("**{0}** kicked off Pikke and spin the lottery machine...."
-                   "\n\n**" + sim_result + "\n**magis pop out!!!\n" + endMsg(sim_result)).format(ctx.message.author.name)
+                   "\n\n**" + formatSim(sim_result) + "\n**magis pop out!!!\n" + endMsg(sim_result,"magi")).format(ctx.message.author.name)
             await ctx.send(msg)
     else:
         await ctx.send("Please go to <#470713788291874837> to play with the summon simulation")
