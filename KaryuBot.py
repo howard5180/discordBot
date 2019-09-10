@@ -92,7 +92,7 @@ chan_name = ["announce-test","bingo-tower-list","guides","guides"]
 @bot.event
 async def on_message(msg):
     if (msg.channel.id == 470713934517764117):
-        wholemsg = "**" + msg.author.display_name + "** posted in __" + msg.guild.name + "__'s <#470713934517764117>:\n\n" + msg.content
+        wholemsg = "**" + msg.author.name + "** posted in __" + msg.guild.name + "__'s <#470713934517764117>:\n\n" + msg.content
         guild_list = []
         chan_list = []
         for x in range(guild_len):
