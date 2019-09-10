@@ -623,14 +623,15 @@ async def behesim(ctx, count: str, step: int = 1):
                 while sim_count != 10:
                     sim_result += (summon_sim(step)+",")
                     sim_count += 1
-                if "SSS" in sim_result:
+                fsim = formatSim(sim_result)
+                if "SSS" in fsim:
                     sim_result += "SSS"
-                elif "SS" in sim_result:
+                elif "SS" in fsim:
                     sim_result += "SS"
                 else:
                     sim_result += summon_sim_last(step)
                 msg = ("**{0}** snapped finger at the banner with {1}\% SS rate and...."
-                       "\n\n**" + formatSim(sim_result) + "\n**behemoths pop out!!!\n" + endMsg(sim_result,"gear")).format(ctx.message.author.name,(step+2))
+                       "\n\n**" + formatSim(sim_result) + "**\nbehemoths pop out!!!\n" + endMsg(sim_result,"gear")).format(ctx.message.author.name,(step+2))
                 await ctx.send(msg)
             else:
                 await ctx.send("The step you entered doesn't look right")
@@ -659,14 +660,15 @@ async def magisim(ctx, count: str):
             while sim_count != 10:
                 sim_result += (summon_sim(1)+",")
                 sim_count += 1
-            if "SS" in sim_result:
-                sim_result += "SS"
-            elif "SSS" in sim_result:
+            fsim = formatSim(sim_result)
+            if "SSS" in fsim:
                 sim_result += "SSS"
+            elif "SS" in fsim:
+                sim_result += "SS"
             else:
                 sim_result += summon_sim_last(1)
             msg = ("**{0}** kicked off Pikke and spin the lottery machine...."
-                   "\n\n**" + formatSim(sim_result) + "\n**magis pop out!!!\n" + endMsg(sim_result,"magi")).format(ctx.message.author.name)
+                   "\n\n**" + formatSim(sim_result) + "**\nmagis pop out!!!\n" + endMsg(sim_result,"magi")).format(ctx.message.author.name)
             await ctx.send(msg)
     else:
         await ctx.send("Please go to <#470713788291874837> to play with the summon simulation")
