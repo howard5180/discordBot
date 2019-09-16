@@ -9,6 +9,7 @@ import secrets
 import meme_command
 import funfact
 from datetime import datetime
+import glossary
 
 bot = commands.Bot(command_prefix='.')
 
@@ -244,6 +245,23 @@ async def funfact(ctx):
     ff_emb.set_author(name="Did you know?", icon_url="https://cdn.discordapp.com/attachments/470713810232147988/512477914755760157/Igneel.png")
     ff_emb.set_thumbnail(url="https://images-ext-1.discordapp.net/external/lhqaE-HJIhURlR7v9LsjxZsyOhsemu4FjxV-pmwnUWg/https/cdn.discordapp.com/attachments/349266633476538368/469151696048750593/stmp_10000018.png")
     await ctx.send(embed = ff_emb)
+
+g_list = glossary.get_glossary()
+g_key = list(g_list)
+@bot.command()
+async def glossary(ctx, *a):
+    aword = " ".join(a)
+    aword = aword.lower()
+    a = aword.split(" ")
+    for glos in a:
+        if glos in g_key:
+            glos_emb = discord.Embed(description=g_list[glos], colour=0xFFFFFF)
+            name = "What does '" + glos + "' mean?"
+            glos_emb.set_author(name=name, icon_url="https://cdn.discordapp.com/attachments/470713810232147988/512477914755760157/Igneel.png")
+            await ctx.send(embed = glos_emb)
+        else:
+            await ctx.send("I can't find a definition for`" + glos + "`, could you try another glossary term?")
+
 
 @bot.command()
 async def scheduledb(ctx):
