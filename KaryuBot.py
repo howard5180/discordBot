@@ -259,13 +259,13 @@ async def glossary(ctx, *a):
             glos_emb.set_author(name=name, icon_url="https://cdn.discordapp.com/attachments/470713810232147988/512477914755760157/Igneel.png")
             await ctx.send(embed = glos_emb)
         else:
-            word = "`"+glos+"`"
+            word = "`"+glos+"` "
             not_found.append(word)
     if len(not_found) != 0:
         abc = ""
         for x in not_found:
             abc += x
-        await ctx.send("I can't find a definition for the following:`" + abc)
+        await ctx.send("I can't find a definition for the following:" + abc)
 
 
 @bot.command()
