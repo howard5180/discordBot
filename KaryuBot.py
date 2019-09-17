@@ -308,7 +308,7 @@ async def reroll(ctx):
 
 channelWhiteList = ["behemoth-magi-hub","bot_testing","executive-room","general-testing"]
 
-@bot.command()
+@bot.command(aliases=["behemoth","bhm"])
 async def behe(ctx, *a):
     memRole = ctx.author.roles
     memRoleName = list()
@@ -339,7 +339,7 @@ async def behe(ctx, *a):
         await ctx.send("Please use the search function in <#470713661447471104>")
 
 
-@bot.command()
+@bot.command(aliases=["weap","weapon"])
 async def wep(ctx, *a):
     memRole = ctx.author.roles
     memRoleName = list()
@@ -358,7 +358,7 @@ async def wep(ctx, *a):
     else:
         await ctx.send("Please use the search function in <#470713661447471104>")
 
-@bot.command()
+@bot.command(aliases=["armour","arm"])
 async def armor(ctx, *a):
     memRole = ctx.author.roles
     memRoleName = list()
