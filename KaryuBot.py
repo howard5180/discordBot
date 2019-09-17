@@ -250,17 +250,22 @@ g_list = glossary.get_glossary()
 g_key = list(g_list)
 @bot.command()
 async def glossary(ctx, *a):
-    aword = " ".join(a)
-    aword = aword.lower()
-    a = aword.split(" ")
+    not_found = []
     for glos in a:
+        glos = glos.lower()
         if glos in g_key:
             glos_emb = discord.Embed(description=g_list[glos], colour=0xFFFFFF)
             name = "What does '" + glos + "' mean?"
             glos_emb.set_author(name=name, icon_url="https://cdn.discordapp.com/attachments/470713810232147988/512477914755760157/Igneel.png")
             await ctx.send(embed = glos_emb)
         else:
-            await ctx.send("I can't find a definition for`" + glos + "`, could you try another glossary term?")
+            word = "`"+glos+"`"
+            not_found.append(word)
+    if len(not_found) != 0:
+        abc = ""
+        for x in not_found:
+            abc += x
+        await ctx.send("I can't find a definition for the following:`" + abc)
 
 
 @bot.command()
