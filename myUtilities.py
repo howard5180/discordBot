@@ -110,7 +110,7 @@ def getWeaponElement(stringInput):
         if (stringInputLower == "earth"):
             returnString = "Earth"
 
-        if (stringInputLower == "lightning"):
+        if (stringInputLower == "lightning" or stringInputLower == "thunder"):
             returnString = "Lightning"
 
         if (stringInputLower == "water"):
