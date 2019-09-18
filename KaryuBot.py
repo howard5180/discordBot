@@ -231,7 +231,7 @@ async def redeem(ctx):
            "\nMake sure to check the codes in <#470713900690833412> too.")
     await ctx.send(msg)
 
-@bot.command()
+@bot.command(aliases=["ticket"])
 async def support(ctx):
     msg = ("Planning to fire a lot of tickets to gogame? Here you go:"
            "\nhttps://support.gogame.net/hc/en-us/requests/new?ticket_form_id=114093964114")

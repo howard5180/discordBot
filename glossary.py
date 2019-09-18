@@ -7,7 +7,9 @@ glossary_list = {"hc":"Refers to Hero's Crusade, one of the new arena mode where
 "gem":"currency in game that is used to summon behemoths and magi",
 "tix":"Refers to tickets, a currency in game used to summon behemoths",
 "magi":"basically skills, can equip on gear slots according to the shape of the magi slots on the gear. There are 4 types of magi: attack (red), support (blue), heal (green) and passive (yellow). When ppl says `rgb` or `rrb` it refers to the color of the magi a gear can equip.",
-"crystal":"an item that allows you to add an extra line of ability to armor gears that the crystal carries."}
+"crystal":"an item that allows you to add an extra line of ability to armor gears that the crystal carries.",
+"br":"Refers to Battle Royale, an event where useful loots (such as featured tablet and ingots) drop when you kill the unique behemoth",
+"pr":"Means Perfect Roll, refers to the state where you roll the max available unique ability for the gear"}
 
 def get_glossary():
     return glossary_list
