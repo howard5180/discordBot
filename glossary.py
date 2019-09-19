@@ -14,8 +14,14 @@ glossary_list = {"hc":"Refers to Hero's Crusade, one of the new arena mode where
 "mlb":"Means Max Limit Break, refers to the state you fully LB a gear",
 "rrb":"while it mostly refers to the color of magi slot on a weapon, it also means Rage Resistance Battle, a form of defense battle",
 "expo":"Means Expedition, an event where you can get crystals",
+"expe":"Means Expedition, an event where you can get crystals",
 "awakening":"You will be able to awaken magi when it reaches max level (except for passive). Each +1 awakening will reduce the max cd of that magi by 2%. The max awakening level you can get on a magi is +10, which reduces -20\% of the max CD. Awakening will not affect the damage of the magi, but for SS meteora series, the awakening level affects the damage of status ailment it causes.",
-"burn":"A status ailment. When it works on player, you keep receiving damage at a high frequency until it wears off. Rolling (dodging) will speed up the wearing off process. When it works on behemoth, it will keeping dealing DoT for a period of time, however only works on earth element behemoths."}
+"dot":"Means Damage Over Time, usually refers to some status that cause continuous damage for a period of time",
+"hot":"Means Heal Over Time, usually refers to the process of continuous healing for a period of time",
+"got":"Refers to the hybrid magi Gem of Trille",
+"burn":"A status ailment. When it works on player, you keep receiving damage continuously at a high frequency until it wears off. Rolling (dodging) will speed up the wearing off process. When it works on behemoth, it will keeping dealing DoT for a period of time, however only works on earth element behemoths.",
+"poison":"A status ailment. When it works on player, you keep receiving damage continuously and slowly until it wears off. When it works on behemoth, it will keep dealing DoT for a period of time. Poison works on all elements of behemoths, but hard to poison any except if they're water or lightning element.",
+"dragon aegis":"Parts on behemoth that can take up certain amount of damage for the behemoth till it breaks"}
 
 def get_glossary():
     return glossary_list

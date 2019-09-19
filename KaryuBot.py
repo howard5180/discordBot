@@ -251,8 +251,12 @@ g_key = list(g_list)
 @bot.command()
 async def glossary(ctx, *a):
     not_found = []
-    for glos in a:
-        glos = glos.lower()
+    whole = " ".join(a)
+    whole = whole.lower()
+    split_a = whole.split(",")
+    for glos in split_a:
+        if glos[0] == " ":
+            glos = glos[1:]
         if glos in g_key:
             glos_emb = discord.Embed(description=g_list[glos], colour=0xFFFFFF)
             name = "What does '" + glos + "' mean?"
