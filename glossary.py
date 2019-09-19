@@ -17,11 +17,20 @@ glossary_list = {"hc":"Refers to Hero's Crusade, one of the new arena mode where
 "expe":"Means Expedition, an event where you can get crystals",
 "awakening":"You will be able to awaken magi when it reaches max level (except for passive). Each +1 awakening will reduce the max cd of that magi by 2%. The max awakening level you can get on a magi is +10, which reduces -20\% of the max CD. Awakening will not affect the damage of the magi, but for SS meteora series, the awakening level affects the damage of status ailment it causes.",
 "dot":"Means Damage Over Time, usually refers to some status that cause continuous damage for a period of time",
-"hot":"Means Heal Over Time, usually refers to the process of continuous healing for a period of time",
+"hot":"Means Heal Over Time, usually refers to a buff that continuously heals for a period of time",
 "got":"Refers to the hybrid magi Gem of Trille",
 "burn":"A status ailment. When it works on player, you keep receiving damage continuously at a high frequency until it wears off. Rolling (dodging) will speed up the wearing off process. When it works on behemoth, it will keeping dealing DoT for a period of time, however only works on earth element behemoths.",
 "poison":"A status ailment. When it works on player, you keep receiving damage continuously and slowly until it wears off. When it works on behemoth, it will keep dealing DoT for a period of time. Poison works on all elements of behemoths, but hard to poison any except if they're water or lightning element.",
-"dragon aegis":"Parts on behemoth that can take up certain amount of damage for the behemoth till it breaks"}
+"dragon aegis":"Parts on behemoth that can take up certain amount of damage for the behemoth till it breaks",
+"qa":"Refers to the support magi Quad Aegis, a magi that provides a shield buff with a durability of 200\% of your max hp",
+"stagger":"Refers to the state where you become immobile/flinched. You can recover quickly from some of the staggers by tapping at the right timing",
+"magi counter":"Some behemoths have magi counter, which will neglect magi damage and does a counter move. However it won't activate when behemoth is immobile or magi counter part is broken",
+"sp weak":"A weak marker that shines in blue instead of regular red marker, indicating the respective weapon type. Hit it with the correct weapon can stagger the behemoth",
+"aegis":"A magi series that grants a shield buff with different additional effect",
+"sa":"Refers to Super Armor, a property that prevents you from flinching",
+"punish":"A status ailment that prevents the player from receiving heal (heals 0 hp from any sort of HP recovery)",
+"shroud":"A status ailment that blinds the player's screen for a period of time",
+"anti stagger":"a state where you're in Super Armor"}
 
 def get_glossary():
     return glossary_list
