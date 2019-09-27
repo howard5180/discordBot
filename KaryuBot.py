@@ -594,7 +594,7 @@ sim_s_magi_end_msg = {"B":"Try harder next time <a:WHALEHARD:462505685800845312>
                      "SS":"What is this luck? <:slimeWut:472120440119099392>",
                      "SSS":"Wew, that's some insane ~~whale~~ luck power there"}
 sim_m_end_msg = ["RNG machine is working as usual huh? Try to <a:WHALEHARD:462505685800845312> next time",
-                 "You got lucky there with 1 SS. Why not pull moar? <:hue:454309821798154240>",
+                 "You got lucky there with 1 SS. Why not pull moar? <:hue:620811525241962515>",
                  "Guess you told Boldon to roll a lot of Luck ability on your gear? <:boldonstare:382267568435625985>",
                  "Did you bribe RNG? <:slimeWut:472120440119099392>",
                  "Oh no. Look behind you. A salt hill is coming\nhttps://gfycat.com/EssentialShortHypsilophodon"]
