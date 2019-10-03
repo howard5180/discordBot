@@ -751,13 +751,29 @@ for x in meme_list_key:
     else:
         meme_help += "` | "
 
+def renew_meme():
+    meme_list = meme_command.get_meme()
+    meme_list_key = list(meme_list)
+    meme_list_key.sort()
+    meme_help = ""
+    for x in meme_list_key:
+        meme_help += "`"
+        meme_help += x
+        if meme_list_key.index(x) == (len(meme_list_key)-1):
+            meme_help += "`"
+        else:
+            meme_help += "` | "
+
 @bot.command()
 async def memelist(ctx):
+    renew_meme()
     emb = (discord.Embed(title="List of memes", description= (meme_help), colour=0xFF0000))
     await ctx.send(embed=emb)
 
 @bot.command(aliases=meme_list_key)
 async def meme(ctx):
+    renew_meme()
+    meme_list = meme_command.get_meme()
     meme_msg = ctx.message.content[1:]
     if " " in meme_msg:
         meme_msg = meme_msg.split()
