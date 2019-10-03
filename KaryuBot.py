@@ -300,6 +300,7 @@ async def reroll(ctx):
     startMsg = "Time remaining until ability half price "
     if weekday == 2:
         a = "ends: "
+        startMsg = "Ability half price in progress!\n" + startMsg
         remainDay = 0
     else:
         a = "starts: "
