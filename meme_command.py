@@ -59,7 +59,7 @@ meme_list = {"readpin":"https://cdn.discordapp.com/attachments/41608788062935449
              "smug":"https://media1.tenor.com/images/d2dd8122eac32df3ad87b436b90c3dd5/tenor.gif?itemid=7333081",
              "smirk":"https://media1.tenor.com/images/3a5314f44cbb30a3c7c55a8c136f1f2d/tenor.gif?itemid=5795854",
              "dance":"https://media.giphy.com/media/SAOYLPOF5n07LTMst5/giphy.gif",
-             "f":"https://tenor.com/16ld.gif"}
+             "f":"https://media1.tenor.com/images/7fc74a965a42fec6a5cd2d63b080d858/tenor.gif?itemid=12855021"}
 
 
 
