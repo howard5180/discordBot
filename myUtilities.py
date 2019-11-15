@@ -305,7 +305,7 @@ def weaponEmbed(behemothWeaponArray):
 
     embed.add_field(name="Weapon Type:", value=f"{behemothWeaponArray[0]['Tier']} {behemothWeaponArray[0]['Type']}", inline=True)
     embed.add_field(name="Behemoth Element:", value=f"{behemothWeaponArray[0]['Element']}", inline=True)
-    embed.add_field(name="Physical Attack:", value=f"{behemothWeaponArray[0]['PhysAttack']}", inline=False)
+    embed.add_field(name="Physical Attack:", value=f"{behemothWeaponArray[0]['PhysAttack']}", inline=True)
     embed.add_field(name="Elemental Attack:", value=f"{behemothWeaponArray[0]['ElemAttack']}", inline=True)
     embed.add_field(name="__Weapon Ability__: (Perfect Roll)", value=f"{behemothWeaponArray[0]['Ability']}", inline=False)
 
@@ -323,12 +323,12 @@ def armorEmbed(behemothArmorArray):
     embed.add_field(name="Elemental Defense:", value=f"{emojiString}", inline=True) 
     
     for row in behemothArmorArray:
-        embed.add_field(name=f"{row['ArmorType']}:", value=f"HP: {row['ArmorHP']}  **|**  P.Defense: {row['ArmorPDef']}  **|**  E.Defense: {row['ArmorEDef']}  **|**  P.Attack: {row['ArmorPAtk']}")
+        embed.add_field(name=f"{row['ArmorType']}:", value=f"HP: {row['ArmorHP']}  **|**  P.Defense: {row['ArmorPDef']}  **|**  E.Defense: {row['ArmorEDef']}  **|**  P.Attack: {row['ArmorPAtk']}", inline=False)
 
-    embed.add_field(name="__Armour Ability__: (Perfect Roll)", value=f"{behemothArmorArray[0]['ArmorAbility']}")
+    embed.add_field(name="__Armour Ability__: (Perfect Roll)", value=f"{behemothArmorArray[0]['ArmorAbility']}", inline=False)
 
     if (behemothArmorArray[0]['ArmorObs'] != ''):
-        embed.add_field(name="__Observation__:", value=f"{behemothArmorArray[0]['ArmorObs']}")
+        embed.add_field(name="__Observation__:", value=f"{behemothArmorArray[0]['ArmorObs']}", inline=False)
         
     embed.set_footer(text="SS Behemoth", icon_url=f"{elementLink}")
     embed.set_thumbnail(url=f"{iconImage}")
