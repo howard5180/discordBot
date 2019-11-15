@@ -30,7 +30,8 @@ glossary_list = {"hc":"Refers to Hero's Crusade, one of the new arena mode where
 "sa":"Refers to Super Armor, a property that prevents you from flinching",
 "punish":"A status ailment that prevents the player from receiving heal (heals 0 hp from any sort of HP recovery)",
 "shroud":"A status ailment that blinds the player's screen for a period of time",
-"anti stagger":"a state where you're in Super Armor"}
+"anti stagger":"a state where you're in Super Armor",
+"flash":"refers to the flash crystal, which provides 10\% atk speed, move speed and magi charge"}
 
 def get_glossary():
     return glossary_list

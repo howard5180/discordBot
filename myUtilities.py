@@ -305,12 +305,12 @@ def weaponEmbed(behemothWeaponArray):
 
     embed.add_field(name="Weapon Type:", value=f"{behemothWeaponArray[0]['Tier']} {behemothWeaponArray[0]['Type']}", inline=True)
     embed.add_field(name="Behemoth Element:", value=f"{behemothWeaponArray[0]['Element']}", inline=True)
-    embed.add_field(name="Physical Attack:", value=f"{behemothWeaponArray[0]['PhysAttack']}", inline=True)
+    embed.add_field(name="Physical Attack:", value=f"{behemothWeaponArray[0]['PhysAttack']}", inline=False)
     embed.add_field(name="Elemental Attack:", value=f"{behemothWeaponArray[0]['ElemAttack']}", inline=True)
-    embed.add_field(name="__Weapon Ability__: (Perfect Roll)", value=f"{behemothWeaponArray[0]['Ability']}")
+    embed.add_field(name="__Weapon Ability__: (Perfect Roll)", value=f"{behemothWeaponArray[0]['Ability']}", inline=False)
 
     if (behemothWeaponArray[0]['Obs'] != ''):
-        embed.add_field(name="__Observation__:", value=f"{behemothWeaponArray[0]['Obs']}")
+        embed.add_field(name="__Observation__:", value=f"{behemothWeaponArray[0]['Obs']}", inline=False)
 
     return embed
 
@@ -375,10 +375,10 @@ def singleMagiEmbed(magiArray):
     if (magiArray[0]['magitypelist.Name'] == 'Heal'):
         embed.add_field(name="Heal Amount:", value=f"{magiArray[0]['HealAmount']}", inline=True)
 
-    embed.add_field(name="Description", value=f"{magiArray[0]['Description']}")
+    embed.add_field(name="Description", value=f"{magiArray[0]['Description']}", inline=False)
 
     if (magiArray[0]['Obs'] != ''):
-        embed.add_field(name="__Observation__:", value=f"{magiArray[0]['Obs']}")
+        embed.add_field(name="__Observation__:", value=f"{magiArray[0]['Obs']}", inline=False)
 
     embed.add_field(name="Magi Type:", value=f"{magiArray[0]['magitypelist.Name']}", inline=True)
         
@@ -395,7 +395,7 @@ def magiListEmbed(magiArray, userSearch):
     embed.add_field(name="Information:", value="The following magi match your request, input a complete name for specific information:", )
 
     for idx, line in enumerate(magiArray, start=1):
-        embed.add_field(name=f"{idx} - Magi's Name: ", value=f"   \"{line['Name']}\" - **Type**: {line['magitypelist.Name']} magi")
+        embed.add_field(name=f"{idx} - Magi's Name: ", value=f"   \"{line['Name']}\" - **Type**: {line['magitypelist.Name']} magi", inline=False)
         
     embed.set_footer(text=f"You searched for: {userSearch}", icon_url=f"{elementLink}")
     embed.set_thumbnail(url=f"{iconImage}")                    
@@ -412,8 +412,8 @@ def singleBehemothEmbed(behemothArray):
     
     embed.add_field(name="Weapon Type:", value=f"{behemothArray[0]['WepTier']} {behemothArray[0]['WepType']}", inline=True)
     embed.add_field(name="Behemoth Element:", value=f"{behemothArray[0]['BeheElement']}", inline=True)
-    embed.add_field(name="__Weapon Ability__: (Perfect Roll)", value=f"{behemothArray[0]['WepAbility']}")
-    embed.add_field(name="__Armour Ability__: (Perfect Roll)", value=f"{behemothArray[0]['ArmourAbility']}")
+    embed.add_field(name="__Weapon Ability__: (Perfect Roll)", value=f"{behemothArray[0]['WepAbility']}", inline=False)
+    embed.add_field(name="__Armour Ability__: (Perfect Roll)", value=f"{behemothArray[0]['ArmourAbility']}", inline=False)
 
     return embed
 
