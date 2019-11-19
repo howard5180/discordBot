@@ -425,7 +425,7 @@ def behemothListEmbed(behemothArray, userSearch):
     embed.add_field(name="Information:", value="The following behemoths match your request, input a complete name for specific information:", )
 
     for idx, line in enumerate(behemothArray, start=1):
-        embed.add_field(name=f"{idx} - Behemoth's Name: ", value=f"   \"{line['BeheName']}\" - **Weapon Type**: {line['BeheElement']} {line['WepTier']} {line['WepType']}")
+        embed.add_field(name=f"{idx} - Behemoth's Name: ", value=f"   \"{line['BeheName']}\" - **Weapon Type**: {line['BeheElement']} {line['WepTier']} {line['WepType']}",inline=False)
         
     embed.set_footer(text=f"You searched for: {userSearch}", icon_url=f"{elementLink}")
     embed.set_thumbnail(url=f"{iconImage}")                    
