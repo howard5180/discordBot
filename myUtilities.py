@@ -422,7 +422,7 @@ def behemothListEmbed(behemothArray, userSearch):
     elementLink = getElementLink('List')
 
     embed = discord.Embed(colour=discord.Colour(getElementColor('List')))
-    embed.add_field(name="Information:", value="The following behemoths match your request, input a complete name for specific information:", )
+    embed.add_field(name="Information:", value="The following behemoths match your request, input a complete name for specific information:", inline=False)
 
     for idx, line in enumerate(behemothArray, start=1):
         embed.add_field(name=f"{idx} - Behemoth's Name: ", value=f"   \"{line['BeheName']}\" - **Weapon Type**: {line['BeheElement']} {line['WepTier']} {line['WepType']}",inline=False)
