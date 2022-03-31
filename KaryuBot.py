@@ -848,6 +848,6 @@ rMsgKey = respondMsg.keys()
 #run bot
 
 #karyu token
-bot.loop.create_task(checkPirate())
-bot.loop.create_task(checkHalfPrice())
+#bot.loop.create_task(checkPirate())
+#bot.loop.create_task(checkHalfPrice())
 bot.run(secrets.getToken())
