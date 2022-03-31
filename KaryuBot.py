@@ -92,7 +92,7 @@ chan_name = ["announce-test","bingo-tower-list","guides","guides"]
 #post dp-gloabl-info posts in other server
 @bot.event
 async def on_message(msg):
-    if (msg.channel.id == 470713934517764117 OR author.id = 241918719507431425):
+    if (msg.channel.id == 470713934517764117 or author.id == 241918719507431425):
         wholemsg = "**" + msg.author.name + "** posted in __" + msg.guild.name + "__'s <#470713934517764117>:\n\n" + msg.content
         guild_list = []
         chan_list = []
