@@ -319,7 +319,7 @@ async def behe(ctx, *a):
     memRoleName = list()
     for xyz in memRole:
         memRoleName.append(xyz.name)
-    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName) or (ctx.message.author.id == 241918719507431425):
         i = 0
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
@@ -350,7 +350,7 @@ async def wep(ctx, *a):
     memRoleName = list()
     for xyz in memRole:
         memRoleName.append(xyz.name)
-    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName) or (ctx.message.author.id == 241918719507431425):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
         queryResults = myUtilities.fetchWeaponDB(filteredInput)
@@ -369,7 +369,7 @@ async def armor(ctx, *a):
     memRoleName = list()
     for xyz in memRole:
         memRoleName.append(xyz.name)
-    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName) or (ctx.message.author.id == 241918719507431425):
         joinedInput = " ".join(a)
         filteredInput = myUtilities.filterInput(joinedInput)
         queryResults = myUtilities.fetchArmorDB(filteredInput)
@@ -388,7 +388,7 @@ async def magi(ctx, *a):
     memRoleName = list()
     for xyz in memRole:
         memRoleName.append(xyz.name)
-    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName):
+    if (ctx.channel.name in channelWhiteList) or ("Moderators" in memRoleName) or (ctx.message.author.id == 241918719507431425):
         joined = " ".join(a)
         filteredInput = myUtilities.filterInput(joined)
         queryResults = myUtilities.fetchMagiDB(filteredInput)
@@ -638,7 +638,7 @@ async def behesim(ctx, count: str, step: int = 1):
     memRoleName = list()
     for xyz in memRole:
         memRoleName.append(xyz.name)
-    if (ctx.channel.name in sim_channel) or ("Moderators" in memRoleName):
+    if (ctx.channel.name in sim_channel) or ("Moderators" in memRoleName) or (ctx.message.author.id == 241918719507431425):
         sim_result = ""
         sim_count = 0
         if count == "single":
@@ -676,7 +676,7 @@ async def magisim(ctx, count: str):
     memRoleName = list()
     for xyz in memRole:
         memRoleName.append(xyz.name)
-    if (ctx.channel.name in sim_channel) or ("Moderators" in memRoleName):
+    if (ctx.channel.name in sim_channel) or ("Moderators" in memRoleName) or (ctx.message.author.id == 241918719507431425):
         sim_result = ""
         sim_count = 0
         if count == "single":
